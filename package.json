@@ -49,15 +49,6 @@
     "@": "src"
   },
   "main": "server.js",
-  "author": "JUNJUN",
-  "email": "hello@JUNapp.com",
-  "license": "Fair-code License",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JUN/JUN-erp-crm/.git"
-  },
-  "bugs": {
-    "url": "https://github.com/JUN/JUN-erp-crm//issues"
-  },
-  "homepage": "https://github.com/JUN/JUN-erp-crm/#readme"
+  "author": "Drakkar",
+  "email": "drakkar.alpha00@gmail.com"
 }
