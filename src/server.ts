@@ -36,8 +36,7 @@ for (const filePath of modelsFiles) {
   require(path.resolve(filePath));
 }
 
-// Start our app!
-import app from './app'; // Assuming app.js has been converted to TypeScript (app.ts)
+import app from './app';
 app.set('port', process.env.PORT || 8888);
 const server = app.listen(app.get('port'), () => {
   console.log(`Express running → On PORT : ${server.address().port}`);
