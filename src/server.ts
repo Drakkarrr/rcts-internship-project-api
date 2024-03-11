@@ -38,6 +38,6 @@ for (const filePath of modelsFiles) {
 
 import app from './app';
 app.set('port', process.env.PORT || 8888);
-const server = app.listen(app.get('port'), () => {
+const server: any = app.listen(app.get('port'), () => {
   console.log(`Express running → On PORT : ${server.address().port}`);
 });
