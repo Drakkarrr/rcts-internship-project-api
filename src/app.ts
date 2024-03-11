@@ -2,14 +2,14 @@ import express, { Express, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
+import fileUpload from 'express-fileupload';
 import coreAuthRouter from './routes/coreRoutes/coreAuth';
 import coreApiRouter from './routes/coreRoutes/coreApi';
 import coreDownloadRouter from './routes/coreRoutes/coreDownloadRouter';
 import corePublicRouter from './routes/coreRoutes/corePublicRouter';
-import adminAuth from './controllers/coreControllers/adminAuth';
+import adminAuth from './controllers/coreControllers/adminAuth as ';
 import errorHandlers from './handlers/errorHandlers';
 import erpApiRouter from './routes/appRoutes/appApi';
-import fileUpload from 'express-fileupload';
 
 const app: Express = express();
 
