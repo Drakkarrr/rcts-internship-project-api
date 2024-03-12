@@ -52,6 +52,7 @@
     "@types/html-pdf": "^3.0.3",
     "@types/node": "^20.11.25",
     "@types/pug": "^2.0.10",
+    "@types/shortid": "^0.0.32",
     "nodemon": "3.0.1"
   },
   "_moduleAliases": {
