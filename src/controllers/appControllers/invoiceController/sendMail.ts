@@ -50,11 +50,11 @@ const mail = async (req: any, res: any) => {
     { filename: folderPath, format: 'A4', targetLocation },
     result,
     async () => {
-      const { id: mailId } = await sendViaApi({
+      const { id: mailId } = (await sendViaApi({
         email,
         name,
         targetLocation,
-      });
+      })) as any;
 
       if (mailId) {
         await InvoiceModel.findByIdAndUpdate(
@@ -78,18 +78,18 @@ const sendViaApi = async ({ email, name, targetLocation }: any) => {
     const resend = new Resend(process.env.RESEND_API);
 
     const settings = await loadSettings();
-    const idurar_app_email = 'noreply@idurarapp.com';
-    const idurar_app_company_email = settings['idurar_app_company_email'];
+    const rcts_app_email = 'noreply@responsivcode.com';
+    const rcts_app_company_email = settings['rcts_app_company_email'];
     const company_name = settings['company_name'];
     // Read the file to be attatched
     const attatchedFile = fs.readFileSync(targetLocation);
 
     // Send the mail using the send method
     const { data } = await resend.emails.send({
-      from: idurar_app_email,
+      from: rcts_app_email,
       to: email,
       subject: 'Invoice From ' + company_name,
-      reply_to: idurar_app_company_email,
+      reply_to: rcts_app_company_email,
       attachments: [
         {
           filename: 'Invoice.pdf',
