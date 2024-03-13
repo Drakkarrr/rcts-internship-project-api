@@ -5,10 +5,9 @@ const Client = mongoose.model('Client');
 const Lead = mongoose.model('People');
 
 const update = async (Model: Model<any>, req: Request, res: Response) => {
-  // Find document by id and updates with the required fields
   req.body.removed = false;
   const result = await Model.findOneAndUpdate({ _id: req.params.id, removed: false }, req.body, {
-    new: true, // return the new result instead of the old one
+    new: true,
     runValidators: true,
   }).exec();
 
@@ -23,7 +22,7 @@ const update = async (Model: Model<any>, req: Request, res: Response) => {
       { company: result._id },
       { name: result.name },
       {
-        new: true, // return the new result instead of the old one
+        new: true,
       }
     ).exec();
 
@@ -31,7 +30,7 @@ const update = async (Model: Model<any>, req: Request, res: Response) => {
       { company: result._id },
       { name: result.name },
       {
-        new: true, // return the new result instead of the old one
+        new: true,
       }
     ).exec();
 

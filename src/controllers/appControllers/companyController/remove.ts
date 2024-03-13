@@ -5,11 +5,8 @@ const Client = mongoose.model('Client');
 const People = mongoose.model('People');
 
 const remove = async (Model: Model<any>, req: Request, res: Response) => {
-  // cannot delete client if it has one invoice or client:
-  // check if client has invoice or client:
   const { id } = req.params;
 
-  // first find if there is at least one client or person attached to the company
   const client = await Client.findOne({
     company: id,
     removed: false,
@@ -33,7 +30,6 @@ const remove = async (Model: Model<any>, req: Request, res: Response) => {
     });
   }
 
-  // if no people or client, delete the company
   const result = await Model.findOneAndUpdate(
     { _id: id, removed: false },
     {
