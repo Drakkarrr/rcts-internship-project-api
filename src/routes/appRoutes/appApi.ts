@@ -32,7 +32,7 @@ const routerApp = (entity: string | any, controller: any) => {
   }
 };
 
-routesList.forEach(({ entity, controllerName }) => {
+routesList.forEach(({ entity, controllerName }: any) => {
   const controller = appControllers[controllerName];
   routerApp(entity, controller);
 });
