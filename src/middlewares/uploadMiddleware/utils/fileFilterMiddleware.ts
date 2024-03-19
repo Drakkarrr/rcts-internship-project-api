@@ -4,7 +4,6 @@ interface FileFilterOptions {
 }
 
 const fileFilterMiddleware = ({ type = 'default', mimetype }: FileFilterOptions): boolean => {
-  // array containing all the possible file types
   const _fileType: string[] = [
     'image/jpeg',
     'image/png',
