@@ -1,7 +1,8 @@
+import { Request } from 'express';
 import multer from 'multer';
 import path from 'path';
 import { slugify } from 'transliteration';
-import { fileFilter } from './utils/LocalfileFilter';
+import fileFilter from './utils/LocalfileFilter';
 
 const singleStorageUpload = ({
   entity,
@@ -18,7 +19,7 @@ const singleStorageUpload = ({
     destination: function (req, file, cb) {
       cb(null, `src/public/uploads/${entity}`);
     },
-    filename: function (req, file, cb) {
+    filename: function (req: any, file, cb: any) {
       try {
         const fileExtension = path.extname(file.originalname);
         const uniqueFileID = Math.random().toString(36).slice(2, 7);
@@ -45,15 +46,17 @@ const singleStorageUpload = ({
         req.body[fieldName] = filePath;
 
         cb(null, _fileName);
-      } catch (error) {
+      } catch (error: string | any) {
         cb(error);
       }
     },
   });
 
-  const filterType = fileFilter(fileType);
+  const filterType = fileFilter(fileType as any);
 
-  const multerStorage = multer({ storage: diskStorage, fileFilter: filterType }).single('file');
+  const multerStorage = multer({ storage: diskStorage, fileFilter: filterType as any }).single(
+    'file'
+  );
   return multerStorage;
 };
 
