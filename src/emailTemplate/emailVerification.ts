@@ -75,7 +75,7 @@ export const passwordVerification = ({
 };
 
 export const afterRegistrationSuccess = ({
-  title = 'Customize RCTS ERP CRM or build your own SaaS',
+  title = 'Verify Your Email Address',
   name = '',
 }: {
   title?: string;
