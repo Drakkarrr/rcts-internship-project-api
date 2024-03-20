@@ -62,7 +62,6 @@ const downloadPdf = async (req: Request, res: Response, { directory, id }: Downl
         message: 'Invalid ID',
       });
     } else {
-      // Server Error
       return res.status(500).json({
         success: false,
         result: null,
