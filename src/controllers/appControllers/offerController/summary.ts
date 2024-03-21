@@ -1,14 +1,14 @@
 import mongoose from 'mongoose';
 import moment from 'moment';
 import { Request, Response } from 'express';
-import { CurrencySettings } from '@/types';
+import { checkCurrency } from '@/utils/currency';
 
 const Model = mongoose.model('Offer');
 
 const summary = async (req: Request, res: Response) => {
   try {
     let defaultType = 'month';
-    const { type, currency } = req.query;
+    const { type, currency } = req.query as any;
 
     if (type) {
       if (['week', 'month', 'year'].includes(type)) {
@@ -23,12 +23,12 @@ const summary = async (req: Request, res: Response) => {
     }
 
     const currentCurrency = currency
-      ? (currency as string).toUpperCase()
-      : (settings['default_currency_code'] as string).toUpperCase();
+      ? currency.toUpperCase()
+      : settings['default_currency_code'].toUpperCase();
 
     const currentDate = moment();
-    const startDate = currentDate.clone().startOf(defaultType);
-    const endDate = currentDate.clone().endOf(defaultType);
+    const startDate = currentDate.clone().startOf(defaultType as any);
+    const endDate = currentDate.clone().endOf(defaultType as any);
 
     const statuses = ['draft', 'pending', 'sent', 'expired', 'declined', 'accepted'];
 
@@ -86,12 +86,12 @@ const summary = async (req: Request, res: Response) => {
       },
     ]);
 
-    let result = [];
+    let result: any[] = [];
 
     const totalOffers = response[0].totalOffer ? response[0].totalOffer[0] : { total: 0, count: 0 };
     const statusResult = response[0].statusCounts || [];
 
-    const statusResultMap = statusResult.map((item) => ({
+    const statusResultMap = statusResult.map((item: any) => ({
       ...item,
       percentage: Math.round((item.count / totalOffers.count) * 100),
     }));
@@ -114,7 +114,7 @@ const summary = async (req: Request, res: Response) => {
       result: finalResult,
       message: `Successfully found all invoices for the last ${defaultType}`,
     });
-  } catch (error) {
+  } catch (error: string | any) {
     return res.status(500).json({
       success: false,
       message: 'Internal server error',
