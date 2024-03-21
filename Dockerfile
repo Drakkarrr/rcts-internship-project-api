@@ -8,8 +8,8 @@ COPY package*.json ./
 
 COPY . .
 
-RUN npm install
+RUN pnpm install
 
 EXPOSE 8888
 
-CMD ["npm", "run", "dev"]
+CMD ["pnpm", "run", "dev"]
