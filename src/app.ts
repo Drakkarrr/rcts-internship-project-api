@@ -7,7 +7,7 @@ import coreAuthRouter from './routes/coreRoutes/coreAuth';
 import coreApiRouter from './routes/coreRoutes/coreApi';
 import coreDownloadRouter from './routes/coreRoutes/coreDownloadRouter';
 import corePublicRouter from './routes/coreRoutes/corePublicRouter';
-import adminAuth from './controllers/coreControllers/adminAuth as ';
+import adminAuth from './controllers/coreControllers/adminAuth';
 import errorHandlers from './handlers/errorHandlers';
 import erpApiRouter from './routes/appRoutes/appApi';
 

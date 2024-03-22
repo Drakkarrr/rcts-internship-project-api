@@ -65,3 +65,10 @@ export const productionErrors = (error: Error, req: Request, res: Response, next
     error: error,
   } as ErrorResponse);
 };
+
+export default {
+  catchErrors,
+  notFound,
+  developmentErrors,
+  productionErrors,
+};
