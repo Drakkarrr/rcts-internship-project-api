@@ -1,6 +1,6 @@
 import currency from 'currency.js';
 
-export const useMoney = ({
+const useMoney = ({
   settings,
 }: {
   settings: {
@@ -59,3 +59,5 @@ export const useMoney = ({
     zero_format,
   };
 };
+
+export default useMoney;
