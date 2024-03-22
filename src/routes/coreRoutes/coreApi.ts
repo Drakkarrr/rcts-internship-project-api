@@ -8,7 +8,7 @@ import { hasPermission } from '@/middlewares/permission';
 
 const router = express.Router();
 
-// Admin management
+//! Admin management
 router.route('/admin/create').post(hasPermission(), catchErrors(adminController.create));
 router.route('/admin/read/:id').get(hasPermission('read'), catchErrors(adminController.read));
 router.route('/admin/update/:id').patch(
@@ -37,7 +37,7 @@ router
     catchErrors(adminController.updateProfile)
   );
 
-// API for Global Setting
+//! API for Global Setting
 router.route('/setting/create').post(hasPermission(), catchErrors(settingController.create));
 router.route('/setting/read/:id').get(hasPermission('read'), catchErrors(settingController.read));
 router
@@ -70,7 +70,7 @@ router
   .route('/setting/updateManySetting')
   .patch(hasPermission(), catchErrors(settingController.updateManySetting));
 
-// API for Email Templates
+//! API for Email Templates
 router.route('/email/create').post(hasPermission('create'), catchErrors(emailController.create));
 router.route('/email/read/:id').get(hasPermission('read'), catchErrors(emailController.read));
 router
