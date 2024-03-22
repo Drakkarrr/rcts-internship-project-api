@@ -1,4 +1,4 @@
-exports.currencyList = [
+export const currencyList = [
   {
     currency_symbol: '₱',
     currency_position: 'before',
