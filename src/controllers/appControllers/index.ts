@@ -1,8 +1,7 @@
-const createCRUDController = require('@/controllers/middlewaresControllers/createCRUDController');
-const { routesList } = require('@/models/utils');
-
-const { globSync } = require('glob');
-const path = require('path');
+import createCRUDController from '@/controllers/middlewaresControllers/createCRUDController';
+import { routesList } from '@/models/utils';
+import { globSync } from 'glob';
+import path from 'path';
 
 const pattern = './src/controllers/appControllers/*/**/';
 const controllerDirectories = globSync(pattern).map((filePath) => {
@@ -10,10 +9,10 @@ const controllerDirectories = globSync(pattern).map((filePath) => {
 });
 
 const appControllers = () => {
-  const controllers = {};
-  const hasCustomControllers = [];
+  const controllers: any = {};
+  const hasCustomControllers: string[] = [];
 
-  controllerDirectories.forEach((controllerName) => {
+  controllerDirectories.forEach((controllerName: string) => {
     try {
       const customController = require('@/controllers/appControllers/' + controllerName);
 
@@ -21,7 +20,7 @@ const appControllers = () => {
         hasCustomControllers.push(controllerName);
         controllers[controllerName] = customController;
       }
-    } catch (err) {
+    } catch (err: any) {
       throw new Error(err.message);
     }
   });
@@ -35,4 +34,4 @@ const appControllers = () => {
   return controllers;
 };
 
-module.exports = appControllers();
+export default appControllers();
