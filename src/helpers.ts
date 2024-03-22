@@ -13,7 +13,7 @@ export const icon = (name: string): Buffer | null => {
 export const image = (name: string): Buffer =>
   fs.readFileSync(`./public/images/photos/${name}.jpg`);
 
-export const siteName: string = `Express.js / MongoBD / Rest Api`;
+export const siteName: string = `ResponsivCode Technology Solutions - Backend`;
 
 export const timeRange = (
   start: moment.MomentInput,
