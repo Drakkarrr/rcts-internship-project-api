@@ -4,17 +4,17 @@ import { Request, Response } from 'express';
 
 const authUser = async (
   req: Request,
-  res: Response,
+  res: Response | any,
   {
     user,
     databasePassword,
     password,
     UserPasswordModel,
   }: {
-    user: any; // Adjust the type according to your user model
-    databasePassword: { salt: string; password: string }; // Adjust the type according to your database password model
+    user: any;
+    databasePassword: { salt: string; password: string };
     password: string;
-    UserPasswordModel: any; // Adjust the type according to your user password model
+    UserPasswordModel: any;
   }
 ) => {
   try {
