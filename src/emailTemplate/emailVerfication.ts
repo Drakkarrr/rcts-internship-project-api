@@ -1,4 +1,4 @@
-export const emailVerification = ({
+export const emailVerfication = ({
   title = 'Verify your email',
   name = '',
   link = '',
@@ -38,7 +38,7 @@ export const emailVerification = ({
     `;
 };
 
-export const passwordVerification = ({
+export const passwordVerfication = ({
   title = 'Reset your Password',
   name = '',
   link = '',
