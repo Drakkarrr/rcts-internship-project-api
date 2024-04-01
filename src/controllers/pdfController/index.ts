@@ -7,33 +7,31 @@ import { getData } from '@/middlewares/serverData';
 import useLanguage from '@/locale/useLanguage';
 import { useMoney, useDate } from '@/settings';
 
-require('dotenv').config({ path: '.env' });
-require('dotenv').config({ path: '.env.local' });
+const pugFiles: string[] = ['invoice', 'offer', 'quote', 'payment'];
 
-interface PdfInfo {
-  filename: string;
-  format: string;
-  targetLocation: string;
-}
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env' });
+dotenv.config({ path: '.env.local' });
 
-interface Result {
-  currency: string;
-}
-
-export const generatePdf = async (
+exports.generatePdf = async (
   modelName: string,
-  info: PdfInfo = { filename: 'pdf_file', format: 'A5', targetLocation: '' },
-  result: Result,
+  info: { filename: string; format: string; targetLocation: string },
+  result: any,
   callback?: () => void
-): Promise<void> => {
+) => {
   try {
     const { targetLocation } = info;
 
+    // if PDF already exists, then delete it and create a new PDF
     if (fs.existsSync(targetLocation)) {
       fs.unlinkSync(targetLocation);
     }
 
+    // render pdf html
+
     if (pugFiles.includes(modelName.toLowerCase())) {
+      // Compile Pug template
+
       const loadCurrency = async () => {
         const datas = await getData({
           model: 'Currency',
@@ -46,12 +44,12 @@ export const generatePdf = async (
       const translate = useLanguage({ selectedLang });
       const currencyList = await loadCurrency();
       const currentCurrency = currencyList.find(
-        (currency) => currency.currency_code.toLowerCase() == result.currency.toLowerCase()
+        (currency: any) => currency.currency_code.toLowerCase() == result.currency.toLowerCase()
       );
-      const { moneyFormatter } = await useMoney({ settings: currentCurrency });
-      const { dateFormat } = useDate({ settings });
+      const { moneyFormatter } = await useMoney({ settings: currentCurrency } as any);
+      const { dateFormat } = useDate({ settings } as any);
 
-      settings.public_server_file = process.env.PUBLIC_SERVER_FILE;
+      settings.public_server_file = process.env.PUBLIC_SERVER_FILE as string;
 
       const htmlContent = pug.renderFile(`src/pdf/${modelName}.pug`, {
         model: result,
@@ -64,16 +62,18 @@ export const generatePdf = async (
 
       pdf
         .create(htmlContent, {
-          format: info.format,
+          format: info.format as any,
           orientation: 'portrait',
           border: '10mm',
         })
-        .toFile(targetLocation, function (error) {
-          if (error) throw new Error(error);
+        .toFile(targetLocation, function (error: Error) {
+          if (error) throw new Error(error.message);
           if (callback) callback();
         });
     }
-  } catch (error) {
-    throw new Error(error);
+  } catch (error: any) {
+    throw new Error(error.message);
   }
 };
+
+export default exports;
