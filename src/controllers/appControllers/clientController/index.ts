@@ -11,16 +11,16 @@ import listAll from './listAll';
 import paginatedList from './paginatedList';
 
 function modelController() {
-  const Model = mongoose.model('Client');
-  const methods = createCRUDController('Client');
+  const Model: any = mongoose.model('Client');
+  const methods: any = createCRUDController('Client');
 
-  methods.read = (req: Request, res: Response) => read(Model, req, res);
+  methods.read = (req: Request | any, res: Response) => read(Model, req, res);
   methods.delete = (req: Request, res: Response) => remove(Model, req, res);
   methods.list = (req: Request, res: Response) => paginatedList(Model, req, res);
   methods.summary = (req: Request, res: Response) => summary(Model, req, res);
   methods.create = (req: Request, res: Response) => create(Model, req, res);
   methods.update = (req: Request, res: Response) => update(Model, req, res);
-  methods.search = (req: Request, res: Response) => search(Model, req, res);
+  methods.search = (req: Request | any, res: Response) => search(Model, req, res);
   methods.listAll = (req: Request, res: Response) => listAll(Model, req, res);
 
   return methods;
