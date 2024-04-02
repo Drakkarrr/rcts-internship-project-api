@@ -8,7 +8,7 @@ interface QueryParams {
 
 const read = async (
   Model: Model<Document>,
-  req: Request<{}, {}, {}, QueryParams>,
+  req: Request<{}, {}, {}, QueryParams> | any,
   res: Response
 ) => {
   let result: any = await Model.findOne({
