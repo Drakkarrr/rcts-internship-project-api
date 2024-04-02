@@ -2,8 +2,6 @@ import { Request, Response } from 'express';
 import { Model } from 'mongoose';
 
 const update = async (Model: Model<any>, req: Request, res: Response) => {
-  // Find document by id and updates with the required fields
-
   const updates: Record<string, any> = { ...req.body };
 
   if (updates.hasOwnProperty('removed')) {
