@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import { calculate } from '@/helpers';
 import { increaseBySettingKey } from '@/middlewares/settings';
 import { checkCurrency } from '@/utils/currency';
+import custom from '@/controllers/pdfController';
 
 const Model = mongoose.model('Offer');
 
