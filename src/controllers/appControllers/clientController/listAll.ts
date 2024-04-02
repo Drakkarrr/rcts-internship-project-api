@@ -10,7 +10,7 @@ const listAll = async (Model: mongoose.Model<any>, req: Request, res: Response):
       removed: false,
     })
       .sort({ created: sort })
-      .populate()
+      .populate('')
       .exec();
 
     const migratedData = result.map((x: any) => migrate(x));
