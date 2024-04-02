@@ -19,7 +19,7 @@ const createCRUDController = (modelName: string) => {
   }
 
   const Model = mongoose.model(modelName) as Model<any>;
-  let crudMethods: Record<string, (req: Request, res: Response) => void> = {
+  let crudMethods: Record<string, (req: Request | any, res: Response) => void> = {
     create: (req, res) => create(Model, req, res),
     read: (req, res) => read(Model, req, res),
     update: (req, res) => update(Model, req, res),

@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import mongoose, { Model } from 'mongoose';
+import mongoose from 'mongoose';
 import { checkCurrency } from '@/utils/currency';
 import { calculate } from '@/helpers';
 import { increaseBySettingKey } from '@/middlewares/settings';
 import schema from './schemaValidate';
 
-const Model: Model<any> = mongoose.model('Invoice');
+const Model = mongoose.model('Invoice');
 
 const create = async (req: Request | any, res: Response) => {
   let body = req.body;
