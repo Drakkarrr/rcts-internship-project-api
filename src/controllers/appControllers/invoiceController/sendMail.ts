@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import { Resend } from 'resend';
 import { SendInvoice } from '@/emailTemplate/SendEmailTemplate';
 import { loadSettings } from '@/middlewares/settings';
-import { generatePdf } from '@/controllers/pdfController';
+import generatePdf from '@/controllers/pdfController';
 import { useAppSettings } from '@/settings';
 
 const InvoiceModel = mongoose.model('Invoice');
@@ -78,7 +78,7 @@ const sendViaApi = async ({ email, name, targetLocation }: any) => {
     const resend = new Resend(process.env.RESEND_API);
 
     const settings = await loadSettings();
-    const rcts_app_email = 'noreply@responsivcode.com';
+    const rcts_app_email = 'noreply@rctsapp.com';
     const rcts_app_company_email = settings['rcts_app_company_email'];
     const company_name = settings['company_name'];
     // Read the file to be attatched

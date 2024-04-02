@@ -78,16 +78,14 @@ const update = async (req: Request, res: Response): Promise<Response> => {
     delete body.currency;
   }
 
-  // Find document by id and update with the required fields
   let paymentStatus =
     calculate.sub(total, discount) === credit ? 'paid' : credit > 0 ? 'partially' : 'unpaid';
   body.paymentStatus = paymentStatus;
 
   const result = await Model.findOneAndUpdate({ _id: req.params.id, removed: false }, body, {
-    new: true, // return the new result instead of the old one
+    new: true,
   }).exec();
 
-  // Returning successful response
   return res.status(200).json({
     success: true,
     result,
