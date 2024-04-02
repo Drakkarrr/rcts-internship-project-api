@@ -42,7 +42,7 @@ const paginatedList = async (
     .skip(skip)
     .limit(limit)
     .sort({ [sortBy as string]: sortValue } as any)
-    .populate()
+    .populate('')
     .exec();
 
   const countPromise: number | any = Model.countDocuments({
