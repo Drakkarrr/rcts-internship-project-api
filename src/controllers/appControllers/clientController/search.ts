@@ -12,17 +12,6 @@ const search = async (
   req: Request<{}, {}, {}, QueryParams>,
   res: Response
 ) => {
-  // console.log(req.query.fields)
-  // if (req.query.q === undefined || req.query.q.trim() === '') {
-  //   return res
-  //     .status(202)
-  //     .json({
-  //       success: false,
-  //       result: [],
-  //       message: 'No document found by this request',
-  //     })
-  //     .end();
-  // }
   const fieldsArray = req.query.fields ? req.query.fields.split(',') : ['name'];
 
   const fields: { $or: { [key: string]: { $regex: RegExp } }[] } = { $or: [] };
