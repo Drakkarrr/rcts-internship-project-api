@@ -23,7 +23,7 @@ interface CRUDMethods {
 function modelController() {
   const modelName: string = 'Lead';
   const Model: Model<any> = mongoose.model(modelName);
-  const methods: CRUDMethods = createCRUDController(modelName);
+  const methods: CRUDMethods = createCRUDController(modelName) as any;
   methods.read = (req, res) => read(Model, req, res);
   methods.delete = (req, res) => remove(Model, req, res);
   methods.list = (req, res) => paginatedList(Model, req, res);
