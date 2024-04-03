@@ -6,10 +6,9 @@ const Lead = mongoose.model('People');
 
 const update = async (Model: Model<any>, req: Request, res: Response) => {
   try {
-    // Find document by id and update with the required fields
     req.body.removed = false;
     const result = await Model.findOneAndUpdate({ _id: req.params.id, removed: false }, req.body, {
-      new: true, // return the new result instead of the old one
+      new: true,
       runValidators: true,
     }).exec();
 
@@ -21,7 +20,6 @@ const update = async (Model: Model<any>, req: Request, res: Response) => {
       });
     }
 
-    // Update related clients and leads with the new name
     await Client.updateMany(
       { company: result._id },
       { name: `${result.firstname} ${result.lastname}` }

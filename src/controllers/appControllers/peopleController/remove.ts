@@ -35,7 +35,6 @@ const remove = async (Model: Model<any>, req: Request, res: Response) => {
       });
     }
 
-    // if no company or client, delete the person
     const result = await Model.findOneAndUpdate(
       { _id: id, removed: false },
       {

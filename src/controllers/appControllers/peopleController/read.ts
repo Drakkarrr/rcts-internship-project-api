@@ -3,7 +3,6 @@ import mongoose, { Model } from 'mongoose';
 
 const read = async (Model: Model<any>, req: Request, res: Response) => {
   try {
-    // Find document by id
     const result = await Model.findOne({
       _id: req.params.id,
       removed: false,
