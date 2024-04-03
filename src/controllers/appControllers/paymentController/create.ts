@@ -36,7 +36,7 @@ const create = async (req: Request | any, res: Response) => {
     });
   }
   req.body['createdBy'] = req.admin._id;
-  req.req.req.body['currency'] = currentInvoice.currency;
+  req.body['currency'] = currentInvoice.currency;
 
   const result = await Model.create(req.body);
 
