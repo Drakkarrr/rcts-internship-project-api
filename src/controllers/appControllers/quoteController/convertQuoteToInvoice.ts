@@ -54,14 +54,13 @@ const convertQuoteToInvoice = async (req: Request | any, res: Response) => {
       createdBy: req.admin._id,
     };
 
-    // Create the invoice document
+    // invoiceData['createdBy'] = req.admin._id;
+
     const invoice = await new InvoiceModel(invoiceData).save();
 
-    // Mark the quote as converted
     quote.converted = true;
     await quote.save();
 
-    // Return the created invoice
     return res.status(200).json({
       success: true,
       result: quote,
