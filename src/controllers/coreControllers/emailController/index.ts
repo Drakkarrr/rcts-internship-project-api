@@ -1,8 +1,6 @@
-import createCRUDController, {
-  CRUDController,
-} from '@/controllers/middlewaresControllers/createCRUDController';
+import createCRUDController from '@/controllers/middlewaresControllers/createCRUDController';
 
-const crudController: CRUDController = createCRUDController('Email');
+const crudController = createCRUDController('Email');
 
 const emailMethods = {
   create: crudController.create,
