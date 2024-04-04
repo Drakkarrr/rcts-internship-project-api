@@ -1,13 +1,11 @@
-import createCRUDController, {
-  CRUDController,
-} from '@/controllers/middlewaresControllers/createCRUDController';
+import createCRUDController from '@/controllers/middlewaresControllers/createCRUDController';
 import listBySettingKey from './listBySettingKey';
 import readBySettingKey from './readBySettingKey';
 import updateBySettingKey from './updateBySettingKey';
 import updateManySetting from './updateManySetting';
 import listAll from './listAll';
 
-const crudController: CRUDController = createCRUDController('Setting');
+const crudController = createCRUDController('Setting');
 
 const settingMethods = {
   read: crudController.read,
