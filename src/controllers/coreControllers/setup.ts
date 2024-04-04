@@ -68,11 +68,11 @@ const setup = async (req: Request, res: Response): Promise<void> => {
       const file = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
       const settingsToUpdate: any = {
-        idurar_app_email: email,
-        idurar_app_company_email: email,
-        idurar_app_timezone: timezone,
-        idurar_app_country: country,
-        idurar_app_language: language || 'en_us',
+        rcts_app_email: email,
+        rcts_app_company_email: email,
+        rcts_app_timezone: timezone,
+        rcts_app_country: country,
+        rcts_app_language: language || 'en_us',
       };
 
       const newSettings = file.map((x: any) => {
@@ -102,7 +102,7 @@ const setup = async (req: Request, res: Response): Promise<void> => {
     res.status(200).json({
       success: true,
       result: {},
-      message: 'Successfully IDURAR App Setup',
+      message: 'Successfully RCTS App Setup',
     });
   } catch (error: string | any) {
     res.status(500).json({
