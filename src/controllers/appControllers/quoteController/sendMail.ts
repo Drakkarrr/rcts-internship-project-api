@@ -4,7 +4,7 @@ import { SendQuote } from '@/emailTemplate/SendEmailTemplate';
 import mongoose from 'mongoose';
 import { Resend } from 'resend';
 import { loadSettings } from '@/middlewares/settings';
-import { generatePdf } from '@/controllers/pdfController';
+import generatePdf from '@/controllers/pdfController';
 
 const QuoteModel = mongoose.model('Quote');
 
