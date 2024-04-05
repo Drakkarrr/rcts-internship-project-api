@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2015",
-    "module": "commonjs",
+    "module": "ESNext",
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
@@ -12,6 +12,7 @@
       "@/*": ["./*"]
     }
   },
+
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }
