@@ -9,8 +9,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "nodemon src/server.ts",
-    "dev": "nodemon --exec ts-node src/server.ts --ignore public/",
+    "start": "nodemon src/server.ts --ignore public/",
+    "dev": "ts-node src/server.ts",
     "production": "NODE_ENV=production",
     "setup": "node src/setup/setup.ts",
     "upgrade": "node src/setup/upgrade.ts",
@@ -55,6 +55,7 @@
     "@types/express-fileupload": "^1.4.4",
     "@types/html-pdf": "^3.0.3",
     "@types/jsonwebtoken": "^9.0.6",
+    "@types/module-alias": "^2.0.4",
     "@types/multer": "^1.4.11",
     "@types/node": "^20.11.25",
     "@types/pug": "^2.0.10",

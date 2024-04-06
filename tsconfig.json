@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2015",
+    "target": "ES2022",
     "module": "ESNext",
     "outDir": "./dist",
     "rootDir": "./src",
@@ -8,11 +8,21 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "src",
+    "resolveJsonModule": true,
+    "strictNullChecks": false,
+    "noImplicitAny": true,
+    "skipLibCheck": true,
+    "importHelpers": true,
+    "types": ["node"],
+    "moduleResolution": "node",
+    "sourceMap": true,
     "paths": {
       "@/*": ["./*"]
     }
   },
-
+  "ts-node": {
+    "esm": true
+  },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }

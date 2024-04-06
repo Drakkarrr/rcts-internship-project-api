@@ -18,14 +18,14 @@ mongoose.connect(
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  } as ConnectOptions | any
+  } as ConnectOptions | any,
 );
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY as string;
 
 mongoose.connection.on('error', (error) => {
   console.log(
-    `1. 🔥 Common Error caused issue → : check your .env file first and add your MongoDB URL`
+    `1. 🔥 Common Error caused issue → : check your .env file first and add your MongoDB URL`,
   );
   console.error(`2. 🚫 Error → : ${error.message}`);
 });
