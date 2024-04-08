@@ -2,10 +2,10 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
+    "esModuleInterop": true,
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
-    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "src",
     "resolveJsonModule": true,
@@ -19,9 +19,6 @@
     "paths": {
       "@/*": ["./*"]
     }
-  },
-  "ts-node": {
-    "esm": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
