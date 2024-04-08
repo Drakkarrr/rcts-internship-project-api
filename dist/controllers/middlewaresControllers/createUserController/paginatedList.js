@@ -1,14 +1,5 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
-const paginatedList = (userModel, req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const paginatedList = async (userModel, req, res) => {
     const User = mongoose.model(userModel);
     const page = req.query.page ? parseInt(req.query.page, 10) : 1;
     const limit = parseInt(req.query.items, 10) || 10;
@@ -22,16 +13,24 @@ const paginatedList = (userModel, req, res) => __awaiter(void 0, void 0, void 0,
     }
     try {
         // Query the database for a list of all results
-        const resultsPromise = User.find(Object.assign({ removed: false, [filter]: equal }, fields))
+        const resultsPromise = User.find({
+            removed: false,
+            [filter]: equal,
+            ...fields,
+        })
             .skip(skip)
             .limit(limit)
             .sort({ [sortBy]: sortValue })
             .populate('')
             .exec();
         // Counting the total documents
-        const countPromise = User.countDocuments(Object.assign({ removed: false, [filter]: equal }, fields));
+        const countPromise = User.countDocuments({
+            removed: false,
+            [filter]: equal,
+            ...fields,
+        });
         // Resolving both promises
-        const [result, count] = yield Promise.all([resultsPromise, countPromise]);
+        const [result, count] = await Promise.all([resultsPromise, countPromise]);
         // Calculating total pages
         const pages = Math.ceil(count / limit);
         // Getting Pagination Object
@@ -61,5 +60,6 @@ const paginatedList = (userModel, req, res) => __awaiter(void 0, void 0, void 0,
             error: error.message,
         });
     }
-});
+};
 export default paginatedList;
+//# sourceMappingURL=paginatedList.js.map

@@ -23,3 +23,4 @@ const createAuthMiddleware = (userModel) => {
     return authMethods;
 };
 export default createAuthMiddleware;
+//# sourceMappingURL=index.js.map

@@ -8,3 +8,4 @@ function generateUniqueNumber(uniqueId, numberLength = 13) {
     return `${day}${month}${year}${randomNumber}${number}`;
 }
 export default generateUniqueNumber;
+//# sourceMappingURL=generateUniqueNumber.js.map

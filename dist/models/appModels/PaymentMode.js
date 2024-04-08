@@ -29,3 +29,4 @@ const paymentModeSchema = new Schema({
     },
 });
 export default mongoose.model('PaymentMode', paymentModeSchema);
+//# sourceMappingURL=PaymentMode.js.map

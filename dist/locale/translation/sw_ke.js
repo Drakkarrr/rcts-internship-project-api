@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "Ongeza Proforma Invoice Mpya",
     ajouter_une_nouvelle_taxe: "Ongeza Kodi Mpya",
 };
+//# sourceMappingURL=sw_ke.js.map

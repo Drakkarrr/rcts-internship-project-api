@@ -119,3 +119,4 @@ const currencyList = [
     'ZMK',
 ];
 export const checkCurrency = (code) => currencyList.includes(code.toUpperCase());
+//# sourceMappingURL=currency.js.map

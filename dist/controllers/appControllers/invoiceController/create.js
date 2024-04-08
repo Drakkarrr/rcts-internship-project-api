@@ -1,20 +1,10 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
 import { checkCurrency } from '@/utils/currency';
 import { calculate } from '@/helpers';
 import { increaseBySettingKey } from '@/middlewares/settings';
 import schema from './schemaValidate';
 const Model = mongoose.model('Invoice');
-const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
+const create = async (req, res) => {
     let body = req.body;
     const { error, value } = schema.validate(body);
     if (error) {
@@ -22,7 +12,7 @@ const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         return res.status(400).json({
             success: false,
             result: null,
-            message: (_a = details[0]) === null || _a === void 0 ? void 0 : _a.message,
+            message: details[0]?.message,
         });
     }
     const { items = [], taxRate = 0, discount = 0, currency } = value;
@@ -50,9 +40,9 @@ const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let paymentStatus = calculate.sub(total, discount) === 0 ? 'paid' : 'unpaid';
     body['paymentStatus'] = paymentStatus;
     body['createdBy'] = req.admin._id;
-    const result = yield new Model(body).save();
+    const result = await new Model(body).save();
     const fileId = 'invoice-' + result._id + '.pdf';
-    const updateResult = yield Model.findOneAndUpdate({ _id: result._id }, { pdf: fileId }, {
+    const updateResult = await Model.findOneAndUpdate({ _id: result._id }, { pdf: fileId }, {
         new: true,
     }).exec();
     increaseBySettingKey({
@@ -63,5 +53,6 @@ const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         result: updateResult,
         message: 'Invoice created successfully',
     });
-});
+};
 export default create;
+//# sourceMappingURL=create.js.map

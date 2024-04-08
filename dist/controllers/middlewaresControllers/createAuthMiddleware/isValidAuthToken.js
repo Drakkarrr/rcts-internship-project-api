@@ -1,15 +1,6 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
-const isValidAuthToken = (req_1, res_1, next_1, _a) => __awaiter(void 0, [req_1, res_1, next_1, _a], void 0, function* (req, res, next, { userModel, jwtSecret = 'JWT_SECRET' }) {
+const isValidAuthToken = async (req, res, next, { userModel, jwtSecret = 'JWT_SECRET' }) => {
     try {
         const UserPassword = mongoose.model(`${userModel}Password`);
         const User = mongoose.model(userModel);
@@ -31,7 +22,7 @@ const isValidAuthToken = (req_1, res_1, next_1, _a) => __awaiter(void 0, [req_1,
                 jwtExpired: true,
             });
         }
-        const [user, userPassword] = yield Promise.all([
+        const [user, userPassword] = await Promise.all([
             User.findOne({ _id: verified.id, removed: false }),
             UserPassword.findOne({ user: verified.id, removed: false }),
         ]);
@@ -67,5 +58,6 @@ const isValidAuthToken = (req_1, res_1, next_1, _a) => __awaiter(void 0, [req_1,
             controller: 'isValidAuthToken',
         });
     }
-});
+};
 export default isValidAuthToken;
+//# sourceMappingURL=isValidAuthToken.js.map

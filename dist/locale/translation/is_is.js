@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "Bæta við nýjum Forforma Reikningi",
     ajouter_une_nouvelle_taxe: "Bæta við nýjum skatti",
 };
+//# sourceMappingURL=is_is.js.map

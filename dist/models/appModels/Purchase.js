@@ -147,3 +147,4 @@ const purchaseSchema = new Schema({
 });
 purchaseSchema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('Purchase', purchaseSchema);
+//# sourceMappingURL=Purchase.js.map

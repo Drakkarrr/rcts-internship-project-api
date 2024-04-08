@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "নতুন প্রোফর্মা চালানপত্র যোগ করুন",
     ajouter_une_nouvelle_taxe: "নতুন ট্যাক্স যোগ করুন",
 };
+//# sourceMappingURL=bn_bd.js.map

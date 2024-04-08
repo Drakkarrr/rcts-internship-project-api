@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "Dodaj novu proformnu fakturu",
     ajouter_une_nouvelle_taxe: "Dodaj novi porez",
 };
+//# sourceMappingURL=hr_hr.js.map

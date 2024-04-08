@@ -57,3 +57,4 @@ const fileFilterMiddleware = ({ type = 'default', mimetype }) => {
     }
 };
 export default fileFilterMiddleware;
+//# sourceMappingURL=fileFilterMiddleware.js.map

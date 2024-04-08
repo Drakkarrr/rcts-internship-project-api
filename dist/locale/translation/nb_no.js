@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "Legg til ny proformafaktura",
     ajouter_une_nouvelle_taxe: "Legg til ny skatt",
 };
+//# sourceMappingURL=nb_no.js.map

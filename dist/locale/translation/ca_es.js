@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "Afegir nova factura proforma",
     ajouter_une_nouvelle_taxe: "Afegir un nou impost",
 };
+//# sourceMappingURL=ca_es.js.map

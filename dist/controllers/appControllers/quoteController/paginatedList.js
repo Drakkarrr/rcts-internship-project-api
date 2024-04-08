@@ -1,14 +1,5 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import { Model } from 'mongoose';
-const paginatedList = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const paginatedList = async (req, res) => {
     const page = req.query.page ? parseInt(req.query.page.toString()) : 1;
     const limit = req.query.items ? parseInt(req.query.items.toString()) : 10;
     const skip = (page - 1) * limit;
@@ -21,14 +12,14 @@ const paginatedList = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         }));
     }
     try {
-        const resultsPromise = Model.find(Object.assign({ removed: false, [filter]: equal }, fields))
+        const resultsPromise = Model.find({ removed: false, [filter]: equal, ...fields })
             .skip(skip)
             .limit(limit)
             .sort({ [sortBy]: sortValue })
             .populate('createdBy', 'name')
             .exec();
-        const countPromise = Model.countDocuments(Object.assign({ removed: false, [filter]: equal }, fields));
-        const [result, count] = yield Promise.all([resultsPromise, countPromise]);
+        const countPromise = Model.countDocuments({ removed: false, [filter]: equal, ...fields });
+        const [result, count] = await Promise.all([resultsPromise, countPromise]);
         const pages = Math.ceil(count / limit);
         const pagination = { page, pages, count };
         if (count > 0) {
@@ -55,5 +46,6 @@ const paginatedList = (req, res) => __awaiter(void 0, void 0, void 0, function* 
             message: 'Internal Server Error',
         });
     }
-});
+};
 export default paginatedList;
+//# sourceMappingURL=paginatedList.js.map

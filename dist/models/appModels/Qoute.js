@@ -112,3 +112,4 @@ const quoteSchema = new Schema({
 });
 quoteSchema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('Quote', quoteSchema);
+//# sourceMappingURL=Qoute.js.map

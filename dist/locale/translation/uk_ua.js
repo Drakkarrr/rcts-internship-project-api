@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "Додати новий проформний рахунок",
     ajouter_une_nouvelle_taxe: "Додати новий податок",
 };
+//# sourceMappingURL=uk_ua.js.map

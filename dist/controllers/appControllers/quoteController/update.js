@@ -1,16 +1,7 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
 import { calculate } from '@/helpers';
 const Model = mongoose.model('Quote');
-const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const update = async (req, res) => {
     const { items = [], taxRate = 0, discount = 0 } = req.body;
     if (items.length === 0) {
         return res.status(400).json({
@@ -39,7 +30,7 @@ const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     if (updatedBody.currency) {
         delete updatedBody.currency;
     }
-    const result = yield Model.findOneAndUpdate({ _id: req.params.id, removed: false }, updatedBody, {
+    const result = await Model.findOneAndUpdate({ _id: req.params.id, removed: false }, updatedBody, {
         new: true, // return the new result instead of the old one
     }).exec();
     return res.status(200).json({
@@ -47,5 +38,6 @@ const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         result,
         message: 'Document updated successfully',
     });
-});
+};
 export default update;
+//# sourceMappingURL=update.js.map

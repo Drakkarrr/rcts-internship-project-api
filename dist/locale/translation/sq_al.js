@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "Shto Faturë Proforma të Re",
     ajouter_une_nouvelle_taxe: "Shto Takse të Re",
 };
+//# sourceMappingURL=sq_al.js.map

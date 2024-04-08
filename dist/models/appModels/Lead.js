@@ -87,3 +87,4 @@ const leadSchema = new Schema({
 });
 leadSchema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('Lead', leadSchema);
+//# sourceMappingURL=Lead.js.map

@@ -42,3 +42,4 @@ const emailSchema = new Schema({
     },
 });
 export default mongoose.model('Email', emailSchema);
+//# sourceMappingURL=Email.js.map

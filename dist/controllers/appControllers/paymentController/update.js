@@ -1,20 +1,11 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
 import { calculate } from '@/helpers';
 const PaymentModel = mongoose.model('Payment');
 const InvoiceModel = mongoose.model('Invoice');
-const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const update = async (req, res) => {
     try {
         const { id } = req.params;
-        const previousPayment = yield PaymentModel.findOne({
+        const previousPayment = await PaymentModel.findOne({
             _id: id,
             removed: false,
         });
@@ -59,10 +50,10 @@ const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             description: req.body.description,
             updated: updatedDate,
         };
-        const result = yield PaymentModel.findOneAndUpdate({ _id: id, removed: false }, { $set: updates }, {
+        const result = await PaymentModel.findOneAndUpdate({ _id: id, removed: false }, { $set: updates }, {
             new: true,
         }).exec();
-        const updateInvoice = yield InvoiceModel.findOneAndUpdate({ _id: invoiceId }, {
+        const updateInvoice = await InvoiceModel.findOneAndUpdate({ _id: invoiceId }, {
             $inc: { credit: changedAmount },
             $set: {
                 paymentStatus: paymentStatus,
@@ -83,5 +74,6 @@ const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             message: 'Internal Server Error',
         });
     }
-});
+};
 export default update;
+//# sourceMappingURL=update.js.map

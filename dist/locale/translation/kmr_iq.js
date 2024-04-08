@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "زیادکردنی فاکتوری پیش‌نمونە نوێ",
     ajouter_une_nouvelle_taxe: "زیادکردنی هەڵبژاردنی نوێ",
 };
+//# sourceMappingURL=kmr_iq.js.map

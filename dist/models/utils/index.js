@@ -30,3 +30,4 @@ for (const filePath of appModelsFiles) {
     routesList.push(route);
 }
 export { controllersList, appModelsList, modelsFiles, entityList, routesList };
+//# sourceMappingURL=index.js.map

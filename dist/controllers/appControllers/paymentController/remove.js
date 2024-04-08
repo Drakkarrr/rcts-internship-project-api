@@ -1,18 +1,9 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
 const Payment = mongoose.model('Payment');
 const Invoice = mongoose.model('Invoice');
-const remove = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const remove = async (req, res) => {
     try {
-        const previousPayment = yield Payment.findOne({
+        const previousPayment = await Payment.findOne({
             _id: req.params.id,
             removed: false,
         });
@@ -28,7 +19,7 @@ const remove = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         let updates = {
             removed: true,
         };
-        const result = yield Payment.findOneAndUpdate({ _id: req.params.id, removed: false }, { $set: updates }, {
+        const result = await Payment.findOneAndUpdate({ _id: req.params.id, removed: false }, { $set: updates }, {
             new: true,
         }).exec();
         let paymentStatus = total - discount === previousCredit - previousAmount
@@ -36,7 +27,7 @@ const remove = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             : previousCredit - previousAmount > 0
                 ? 'partially'
                 : 'unpaid';
-        const updateInvoice = yield Invoice.findOneAndUpdate({ _id: invoiceId }, {
+        const updateInvoice = await Invoice.findOneAndUpdate({ _id: invoiceId }, {
             $pull: {
                 payment: paymentId,
             },
@@ -61,5 +52,6 @@ const remove = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             message: 'Internal Server Error',
         });
     }
-});
+};
 export default remove;
+//# sourceMappingURL=remove.js.map

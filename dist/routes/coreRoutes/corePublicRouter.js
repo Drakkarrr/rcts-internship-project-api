@@ -28,3 +28,4 @@ router.route('/:subPath/:directory/:file').get((req, res) => {
     }
 });
 export default router;
+//# sourceMappingURL=corePublicRouter.js.map

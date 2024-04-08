@@ -1,12 +1,3 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import Joi from 'joi';
@@ -15,19 +6,19 @@ import shortid from 'shortid';
 import checkAndCorrectURL from './checkAndCorrectURL';
 import sendMail from './sendMail';
 import { useAppSettings } from '@/settings';
-const resetPassword = (req_1, res_1, _a) => __awaiter(void 0, [req_1, res_1, _a], void 0, function* (req, res, { userModel }) {
+const resetPassword = async (req, res, { userModel }) => {
     const UserPassword = mongoose.model(userModel + 'Password');
     const User = mongoose.model(userModel);
     const { password, userId, resetToken } = req.body;
-    const databasePassword = yield UserPassword.findOne({ user: userId, removed: false });
-    const user = yield User.findOne({ _id: userId, removed: false }).exec();
+    const databasePassword = await UserPassword.findOne({ user: userId, removed: false });
+    const user = await User.findOne({ _id: userId, removed: false }).exec();
     if (!user.enabled && user.role === 'owner') {
         const settings = useAppSettings();
         const rcts_app_email = settings['rcts_app_email'];
         const rcts_base_url = settings['rcts_base_url'];
         const url = checkAndCorrectURL(rcts_base_url);
         const link = url + '/verify/' + user._id + '/' + databasePassword.emailToken;
-        yield sendMail({
+        await sendMail({
             email: user.email,
             name: user.name,
             link,
@@ -82,7 +73,7 @@ const resetPassword = (req_1, res_1, _a) => __awaiter(void 0, [req_1, res_1, _a]
     const token = jwt.sign({
         id: userId,
     }, process.env.JWT_SECRET || '', { expiresIn: '24h' });
-    yield UserPassword.findOneAndUpdate({ user: userId }, {
+    await UserPassword.findOneAndUpdate({ user: userId }, {
         $push: { loggedSessions: token },
         password: hashedPassword,
         salt: salt,
@@ -118,5 +109,6 @@ const resetPassword = (req_1, res_1, _a) => __awaiter(void 0, [req_1, res_1, _a]
             },
             message: 'Successfully resetPassword user',
         });
-});
+};
 export default resetPassword;
+//# sourceMappingURL=resetPassword.js.map

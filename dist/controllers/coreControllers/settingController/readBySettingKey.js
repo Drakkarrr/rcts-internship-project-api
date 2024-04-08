@@ -1,15 +1,6 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
 const Model = mongoose.model('Setting');
-const readBySettingKey = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const readBySettingKey = async (req, res) => {
     try {
         // Find document by settingKey
         const settingKey = req.params.settingKey;
@@ -21,7 +12,7 @@ const readBySettingKey = (req, res) => __awaiter(void 0, void 0, void 0, functio
             });
             return;
         }
-        const result = yield Model.findOne({
+        const result = await Model.findOne({
             settingKey,
         });
         // If no results found, return document not found
@@ -49,5 +40,6 @@ const readBySettingKey = (req, res) => __awaiter(void 0, void 0, void 0, functio
             error: error.message,
         });
     }
-});
+};
 export default readBySettingKey;
+//# sourceMappingURL=readBySettingKey.js.map

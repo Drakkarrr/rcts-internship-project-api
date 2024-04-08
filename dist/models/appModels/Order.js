@@ -113,3 +113,4 @@ const orderSchema = new Schema({
 });
 orderSchema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('Order', orderSchema);
+//# sourceMappingURL=Order.js.map

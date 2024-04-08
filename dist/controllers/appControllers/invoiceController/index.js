@@ -15,3 +15,4 @@ methods.summary = summary;
 methods.list = paginatedList;
 methods.read = read;
 export default methods;
+//# sourceMappingURL=index.js.map

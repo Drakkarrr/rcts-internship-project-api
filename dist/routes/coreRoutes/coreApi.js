@@ -64,3 +64,4 @@ router.route('/email/list').get(hasPermission('read'), catchErrors(emailControll
 router.route('/email/listAll').get(hasPermission('read'), catchErrors(emailController.listAll));
 router.route('/email/filter').get(hasPermission('read'), catchErrors(emailController.filter));
 export default router;
+//# sourceMappingURL=coreApi.js.map

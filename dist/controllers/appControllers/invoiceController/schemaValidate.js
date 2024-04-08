@@ -21,3 +21,4 @@ const schema = Joi.object({
     taxRate: Joi.alternatives().try(Joi.number(), Joi.string()).required(),
 });
 export default schema;
+//# sourceMappingURL=schemaValidate.js.map

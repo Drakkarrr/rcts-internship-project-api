@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "Proforma Faktura Berria Gehitu",
     ajouter_une_nouvelle_taxe: "Tasa Berria Gehitu",
 };
+//# sourceMappingURL=eu_es.js.map

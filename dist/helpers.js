@@ -41,3 +41,4 @@ export const calculate = {
         return currency(firstValue).divide(secondValue).value;
     },
 };
+//# sourceMappingURL=helpers.js.map

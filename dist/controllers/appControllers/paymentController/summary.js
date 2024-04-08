@@ -1,20 +1,11 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
 import moment from 'moment';
 import { loadSettings } from '@/middlewares/settings';
 const PaymentModel = mongoose.model('Payment');
-const summary = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const summary = async (req, res) => {
     let defaultType = 'month';
     const { type, currency } = req.query;
-    const settings = yield loadSettings();
+    const settings = await loadSettings();
     const currentCurrency = currency
         ? currency.toString().toUpperCase()
         : settings['default_currency_code'].toUpperCase();
@@ -34,7 +25,7 @@ const summary = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let startDate = currentDate.clone().startOf(defaultType);
     let endDate = currentDate.clone().endOf(defaultType);
     try {
-        const result = yield PaymentModel.aggregate([
+        const result = await PaymentModel.aggregate([
             {
                 $match: {
                     removed: false,
@@ -77,5 +68,6 @@ const summary = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             message: 'Internal Server Error',
         });
     }
-});
+};
 export default summary;
+//# sourceMappingURL=summary.js.map

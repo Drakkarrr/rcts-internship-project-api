@@ -64,8 +64,8 @@ const forgetPassword = async (req: any, res: any, { userModel }: { userModel: st
     name: user.name,
     link,
     subject: 'Reset your password | rcts',
-    rctsAppEmail,
-    type: 'passwordVerification',
+    rcts_app_email: rctsAppEmail,
+    type: 'passwordVerfication',
   });
 
   return res.status(200).json({

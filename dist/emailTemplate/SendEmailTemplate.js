@@ -78,3 +78,4 @@ export const SendPaymentReceipt = ({ title = 'Payment Receipt from rcts', name =
     </div>
     `;
 };
+//# sourceMappingURL=SendEmailTemplate.js.map

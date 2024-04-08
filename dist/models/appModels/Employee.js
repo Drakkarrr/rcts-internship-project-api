@@ -150,3 +150,4 @@ const employeeSchema = new Schema({
 });
 employeeSchema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('Employee', employeeSchema);
+//# sourceMappingURL=Employee.js.map

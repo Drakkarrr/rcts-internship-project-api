@@ -1,16 +1,7 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
 import moment from 'moment';
 const InvoiceModel = mongoose.model('Invoice');
-const summary = (Model, req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const summary = async (Model, req, res) => {
     let defaultType = 'month';
     const { type } = req.query;
     if (type && ['week', 'month', 'year'].includes(type)) {
@@ -78,7 +69,7 @@ const summary = (Model, req, res) => __awaiter(void 0, void 0, void 0, function*
             },
         },
     ];
-    const aggregationResult = yield Model.aggregate(pipeline);
+    const aggregationResult = await Model.aggregate(pipeline);
     const result = aggregationResult[0];
     const totalClients = result.totalClients[0] ? result.totalClients[0].count : 0;
     const totalNewClients = result.newClients[0] ? result.newClients[0].count : 0;
@@ -93,5 +84,6 @@ const summary = (Model, req, res) => __awaiter(void 0, void 0, void 0, function*
         },
         message: 'Successfully get summary of new clients',
     });
-});
+};
 export default summary;
+//# sourceMappingURL=summary.js.map

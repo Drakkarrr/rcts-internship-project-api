@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "Żid Fattura Proforma Ġdida",
     ajouter_une_nouvelle_taxe: "Żid Taxxa Ġdida",
 };
+//# sourceMappingURL=mt_mt.js.map

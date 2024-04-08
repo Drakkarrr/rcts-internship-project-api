@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "Pridať novú proforma faktúru",
     ajouter_une_nouvelle_taxe: "Pridať novú daň",
 };
+//# sourceMappingURL=sk_sk.js.map

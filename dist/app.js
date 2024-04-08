@@ -26,3 +26,4 @@ app.use('/public', corePublicRouter);
 app.use(errorHandlers.notFound);
 app.use(errorHandlers.productionErrors);
 export default app;
+//# sourceMappingURL=app.js.map

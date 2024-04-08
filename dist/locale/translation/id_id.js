@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "Tambah Faktur Proforma Baru",
     ajouter_une_nouvelle_taxe: "Tambah Pajak Baru",
 };
+//# sourceMappingURL=id_id.js.map

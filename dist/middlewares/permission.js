@@ -9,9 +9,8 @@ const roles = {
 };
 export const hasPermission = (permissionName = 'none') => {
     return (req, res, next) => {
-        var _a;
         const currentUserRole = req.admin.role;
-        if (((_a = roles[currentUserRole]) === null || _a === void 0 ? void 0 : _a.includes(permissionName)) ||
+        if (roles[currentUserRole]?.includes(permissionName) ||
             currentUserRole === 'owner' ||
             currentUserRole === 'admin') {
             next();
@@ -25,3 +24,4 @@ export const hasPermission = (permissionName = 'none') => {
         }
     };
 };
+//# sourceMappingURL=permission.js.map

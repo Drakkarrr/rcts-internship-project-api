@@ -1,13 +1,4 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-const paginatedList = (Model, req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const paginatedList = async (Model, req, res) => {
     const page = req.query.page ? parseInt(req.query.page) : 1;
     const limit = req.query.items ? parseInt(req.query.items) : 10;
     const skip = page * limit - limit;
@@ -20,16 +11,24 @@ const paginatedList = (Model, req, res) => __awaiter(void 0, void 0, void 0, fun
     }
     try {
         // Query the database for a list of all results
-        const resultsPromise = Model.find(Object.assign({ removed: false, [filter]: equal }, fields))
+        const resultsPromise = Model.find({
+            removed: false,
+            [filter]: equal,
+            ...fields,
+        })
             .skip(skip)
             .limit(limit)
             .sort({ [sortBy]: sortValue })
             .populate('company', 'name')
             .exec();
         // Counting the total documents
-        const countPromise = Model.countDocuments(Object.assign({ removed: false, [filter]: equal }, fields));
+        const countPromise = Model.countDocuments({
+            removed: false,
+            [filter]: equal,
+            ...fields,
+        });
         // Resolving both promises
-        const [result, count] = yield Promise.all([resultsPromise, countPromise]);
+        const [result, count] = await Promise.all([resultsPromise, countPromise]);
         // Calculating total pages
         const pages = Math.ceil(count / limit);
         // Getting Pagination Object
@@ -58,5 +57,6 @@ const paginatedList = (Model, req, res) => __awaiter(void 0, void 0, void 0, fun
             message: 'Internal Server Error',
         });
     }
-});
+};
 export default paginatedList;
+//# sourceMappingURL=paginatedList.js.map

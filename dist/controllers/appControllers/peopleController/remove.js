@@ -1,20 +1,11 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
 const Client = mongoose.model('Client');
 const Company = mongoose.model('Company');
-const remove = (Model, req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const remove = async (Model, req, res) => {
     try {
         // cannot delete client if it has one invoice or is attached to any company
         const { id } = req.params;
-        const client = yield Client.findOne({
+        const client = await Client.findOne({
             people: id,
             removed: false,
         }).exec();
@@ -25,7 +16,7 @@ const remove = (Model, req, res) => __awaiter(void 0, void 0, void 0, function* 
                 message: 'Cannot delete person if attached to any company or is a client',
             });
         }
-        const company = yield Company.findOne({
+        const company = await Company.findOne({
             mainContact: id,
             removed: false,
         }).exec();
@@ -36,7 +27,7 @@ const remove = (Model, req, res) => __awaiter(void 0, void 0, void 0, function* 
                 message: 'Cannot delete person if attached to any company or is a client',
             });
         }
-        const result = yield Model.findOneAndUpdate({ _id: id, removed: false }, {
+        const result = await Model.findOneAndUpdate({ _id: id, removed: false }, {
             $set: {
                 removed: true,
             },
@@ -61,5 +52,6 @@ const remove = (Model, req, res) => __awaiter(void 0, void 0, void 0, function* 
             message: 'Internal Server Error',
         });
     }
-});
+};
 export default remove;
+//# sourceMappingURL=remove.js.map

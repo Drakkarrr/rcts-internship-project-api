@@ -28,3 +28,4 @@ const createCRUDController = (modelName) => {
     return crudMethods;
 };
 export default createCRUDController;
+//# sourceMappingURL=index.js.map

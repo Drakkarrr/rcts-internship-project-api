@@ -1,14 +1,5 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
-const search = (userModel, req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const search = async (userModel, req, res) => {
     const User = mongoose.model(userModel);
     const fieldsArray = req.query.fields
         ? req.query.fields.split(',')
@@ -17,7 +8,10 @@ const search = (userModel, req, res) => __awaiter(void 0, void 0, void 0, functi
     for (const field of fieldsArray) {
         fields.$or.push({ [field]: { $regex: new RegExp(req.query.q, 'i') } });
     }
-    let result = yield User.find(Object.assign(Object.assign({}, fields), { removed: false }))
+    let result = await User.find({
+        ...fields,
+        removed: false,
+    })
         .sort({ enabled: -1 })
         .limit(20)
         .exec();
@@ -35,5 +29,6 @@ const search = (userModel, req, res) => __awaiter(void 0, void 0, void 0, functi
             message: 'No document found by this request',
         });
     }
-});
+};
 export default search;
+//# sourceMappingURL=search.js.map

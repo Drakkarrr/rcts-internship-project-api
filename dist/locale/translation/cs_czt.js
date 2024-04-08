@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "Přidat novou fakturu zálohovou",
     ajouter_une_nouvelle_taxe: "Přidat novou daň",
 };
+//# sourceMappingURL=cs_czt.js.map

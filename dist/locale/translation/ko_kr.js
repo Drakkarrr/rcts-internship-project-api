@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "새 Proforma 송장 추가",
     ajouter_une_nouvelle_taxe: "새 세금 추가하기",
 };
+//# sourceMappingURL=ko_kr.js.map

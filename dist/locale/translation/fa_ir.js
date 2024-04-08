@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "افزودن پیش فاکتور جدید",
     ajouter_une_nouvelle_taxe: "افزودن مالیات جدید",
 };
+//# sourceMappingURL=fa_ir.js.map

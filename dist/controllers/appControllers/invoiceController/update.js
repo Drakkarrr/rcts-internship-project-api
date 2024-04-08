@@ -1,18 +1,8 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
 import { calculate } from '@/helpers';
 import schema from './schemaValidate';
 const Model = mongoose.model('Invoice');
-const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
+const update = async (req, res) => {
     let body = req.body;
     const { error, value } = schema.validate(body);
     if (error) {
@@ -20,10 +10,10 @@ const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         return res.status(400).json({
             success: false,
             result: null,
-            message: (_a = details[0]) === null || _a === void 0 ? void 0 : _a.message,
+            message: details[0]?.message,
         });
     }
-    const previousInvoice = yield Model.findOne({
+    const previousInvoice = await Model.findOne({
         _id: req.params.id,
         removed: false,
     });
@@ -67,7 +57,7 @@ const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
     let paymentStatus = calculate.sub(total, discount) === credit ? 'paid' : credit > 0 ? 'partially' : 'unpaid';
     body.paymentStatus = paymentStatus;
-    const result = yield Model.findOneAndUpdate({ _id: req.params.id, removed: false }, body, {
+    const result = await Model.findOneAndUpdate({ _id: req.params.id, removed: false }, body, {
         new: true,
     }).exec();
     return res.status(200).json({
@@ -75,5 +65,6 @@ const update = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         result,
         message: 'Invoice updated successfully',
     });
-});
+};
 export default update;
+//# sourceMappingURL=update.js.map

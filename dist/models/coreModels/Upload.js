@@ -70,3 +70,4 @@ const uploadSchema = new Schema({
     },
 });
 export default mongoose.model('Upload', uploadSchema);
+//# sourceMappingURL=Upload.js.map

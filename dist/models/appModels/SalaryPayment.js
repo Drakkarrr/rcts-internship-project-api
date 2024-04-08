@@ -50,3 +50,4 @@ const salaryPaymentSchema = new Schema({
 });
 salaryPaymentSchema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('SalaryPayment', salaryPaymentSchema);
+//# sourceMappingURL=SalaryPayment.js.map

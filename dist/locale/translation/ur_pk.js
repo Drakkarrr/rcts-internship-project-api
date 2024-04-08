@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "نئی پروفارما انوائس شامل کریں",
     ajouter_une_nouvelle_taxe: "نئی ٹیکس شامل کریں",
 };
+//# sourceMappingURL=ur_pk.js.map

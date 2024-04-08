@@ -1,0 +1,1 @@
+{"version":3,"file":"useAppSettings.js","sourceRoot":"","sources":["../../src/settings/useAppSettings.ts"],"names":[],"mappings":"AAAA,MAAM,cAAc,GAAG,GAAG,EAAE;IAC1B,IAAI,QAAQ,GAA8B,EAAE,CAAC;IAC7C,QAAQ,CAAC,gBAAgB,CAAC,GAAG,+CAA+C,CAAC;IAC7E,QAAQ,CAAC,eAAe,CAAC,GAAG,qDAAqD,CAAC;IAClF,OAAO,QAAQ,CAAC;AAClB,CAAC,CAAC;AAEF,eAAe,cAAc,CAAC"}

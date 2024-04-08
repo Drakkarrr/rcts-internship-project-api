@@ -33,3 +33,4 @@ export const currencyList = [
         enabled: true,
     },
 ];
+//# sourceMappingURL=currencyList.js.map

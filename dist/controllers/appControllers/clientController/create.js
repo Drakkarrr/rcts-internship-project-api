@@ -1,16 +1,7 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
 const People = mongoose.model('People');
 const Company = mongoose.model('Company');
-const create = (Model, req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const create = async (Model, req, res) => {
     try {
         // Creating a new document in the collection
         if (req.body.type === 'people') {
@@ -22,7 +13,7 @@ const create = (Model, req, res) => __awaiter(void 0, void 0, void 0, function* 
                 return;
             }
             else {
-                let client = yield Model.findOne({
+                let client = await Model.findOne({
                     people: req.body.people,
                     removed: false,
                 });
@@ -34,7 +25,7 @@ const create = (Model, req, res) => __awaiter(void 0, void 0, void 0, function* 
                     });
                     return;
                 }
-                let { firstname, lastname } = yield People.findOneAndUpdate({
+                let { firstname, lastname } = await People.findOneAndUpdate({
                     _id: req.body.people,
                     removed: false,
                 }, { isClient: true }, {
@@ -54,7 +45,7 @@ const create = (Model, req, res) => __awaiter(void 0, void 0, void 0, function* 
                 return;
             }
             else {
-                let client = yield Model.findOne({
+                let client = await Model.findOne({
                     company: req.body.company,
                     removed: false,
                 });
@@ -66,7 +57,7 @@ const create = (Model, req, res) => __awaiter(void 0, void 0, void 0, function* 
                     });
                     return;
                 }
-                let { name } = yield Company.findOneAndUpdate({
+                let { name } = await Company.findOneAndUpdate({
                     _id: req.body.company,
                     removed: false,
                 }, { isClient: true }, {
@@ -78,7 +69,9 @@ const create = (Model, req, res) => __awaiter(void 0, void 0, void 0, function* 
             }
         }
         req.body.removed = false;
-        const result = yield new Model(Object.assign({}, req.body)).save();
+        const result = await new Model({
+            ...req.body,
+        }).save();
         // Returning successful response
         res.status(200).json({
             success: true,
@@ -94,5 +87,6 @@ const create = (Model, req, res) => __awaiter(void 0, void 0, void 0, function* 
             error: error.message,
         });
     }
-});
+};
 export default create;
+//# sourceMappingURL=create.js.map

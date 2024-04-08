@@ -5,3 +5,4 @@ import readBySettingKey from './readBySettingKey';
 import updateBySettingKey from './updateBySettingKey';
 import increaseBySettingKey from './increaseBySettingKey';
 export { loadSettings, listAllSettings, listBySettingKey, readBySettingKey, updateBySettingKey, increaseBySettingKey, };
+//# sourceMappingURL=index.js.map

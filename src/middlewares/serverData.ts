@@ -7,7 +7,7 @@ interface IDataResult extends Document {
 
 export const getData = <T extends IDataResult>({ model }: { model: string }): Promise<T[]> => {
   const Model: Model<T> = mongoose.model<T>(model);
-  const result: Promise<T[]> = Model.find({ removed: false, enabled: true }).exec();
+  const result: Promise<T[]> = Model.find({ removed: false, enabled: true } as any).exec();
   return result;
 };
 
@@ -19,6 +19,6 @@ export const getOne = <T extends IDataResult>({
   id: string;
 }): Promise<T | null> => {
   const Model: Model<T> = mongoose.model<T>(model);
-  const result: Promise<T | null> = Model.findOne({ _id: id, removed: false }).exec();
+  const result: Promise<T | null> = Model.findOne({ _id: id, removed: false } as any).exec();
   return result;
 };

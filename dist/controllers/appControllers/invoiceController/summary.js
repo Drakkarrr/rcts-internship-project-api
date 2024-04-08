@@ -1,20 +1,10 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import { Model } from 'mongoose';
 import moment from 'moment';
 import { loadSettings } from '@/middlewares/settings';
-const summary = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
+const summary = async (req, res) => {
     let defaultType = 'month';
     const { type, currency } = req.query;
-    const settings = yield loadSettings();
+    const settings = await loadSettings();
     const currentCurrency = currency
         ? currency.toUpperCase()
         : settings['default_currency_code'].toUpperCase();
@@ -32,7 +22,7 @@ const summary = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const startDate = currentDate.clone().startOf(defaultType);
     const endDate = currentDate.clone().endOf(defaultType);
     const statuses = ['draft', 'pending', 'overdue', 'paid', 'unpaid', 'partially'];
-    const response = yield Model.aggregate([
+    const response = await Model.aggregate([
         {
             $match: {
                 removed: false,
@@ -123,16 +113,26 @@ const summary = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         },
     ]);
     let result = [];
-    const totalInvoices = ((_a = response[0].totalInvoice) === null || _a === void 0 ? void 0 : _a[0]) || {
+    const totalInvoices = response[0].totalInvoice?.[0] || {
         total: 0,
         count: 0,
     };
     const statusResult = response[0].statusCounts || [];
     const paymentStatusResult = response[0].paymentStatusCounts || [];
     const overdueResult = response[0].overdueCounts || [];
-    const statusResultMap = statusResult.map((item) => (Object.assign(Object.assign({}, item), { percentage: Math.round((item.count / totalInvoices.count) * 100) })));
-    const paymentStatusResultMap = paymentStatusResult.map((item) => (Object.assign(Object.assign({}, item), { percentage: Math.round((item.count / totalInvoices.count) * 100) })));
-    const overdueResultMap = overdueResult.map((item) => (Object.assign(Object.assign({}, item), { status: 'overdue', percentage: Math.round((item.count / totalInvoices.count) * 100) })));
+    const statusResultMap = statusResult.map((item) => ({
+        ...item,
+        percentage: Math.round((item.count / totalInvoices.count) * 100),
+    }));
+    const paymentStatusResultMap = paymentStatusResult.map((item) => ({
+        ...item,
+        percentage: Math.round((item.count / totalInvoices.count) * 100),
+    }));
+    const overdueResultMap = overdueResult.map((item) => ({
+        ...item,
+        status: 'overdue',
+        percentage: Math.round((item.count / totalInvoices.count) * 100),
+    }));
     statuses.forEach((status) => {
         const found = [
             ...paymentStatusResultMap,
@@ -143,7 +143,7 @@ const summary = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             result.push(found);
         }
     });
-    const unpaid = yield Model.aggregate([
+    const unpaid = await Model.aggregate([
         {
             $match: {
                 removed: false,
@@ -177,5 +177,6 @@ const summary = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         result: finalResult,
         message: `Successfully found all invoices for the last ${defaultType}`,
     });
-});
+};
 export default summary;
+//# sourceMappingURL=summary.js.map

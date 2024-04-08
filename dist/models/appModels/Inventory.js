@@ -74,3 +74,4 @@ const inventorySchema = new Schema({
     },
 });
 export default mongoose.model('Inventory', inventorySchema);
+//# sourceMappingURL=Inventory.js.map

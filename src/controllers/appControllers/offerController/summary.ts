@@ -5,7 +5,7 @@ import { checkCurrency } from '@/utils/currency';
 
 const Model = mongoose.model('Offer');
 
-const summary = async (req: Request, res: Response) => {
+const summary = async (req: Request, res: Response, settings?: any) => {
   try {
     let defaultType = 'month';
     const { type, currency } = req.query as any;

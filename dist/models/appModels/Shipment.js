@@ -105,3 +105,4 @@ const shipmentSchema = new Schema({
 });
 shipmentSchema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('Shipment', shipmentSchema);
+//# sourceMappingURL=Shipment.js.map

@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "नया प्रोफ़ोर्मा चालान जोड़ें",
     ajouter_une_nouvelle_taxe: "नई कर जोड़ें",
 };
+//# sourceMappingURL=hi_in.js.map

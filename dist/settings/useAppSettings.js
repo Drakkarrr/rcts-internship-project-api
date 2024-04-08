@@ -5,3 +5,4 @@ const useAppSettings = () => {
     return settings;
 };
 export default useAppSettings;
+//# sourceMappingURL=useAppSettings.js.map

@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "Thêm hóa đơn Proforma mới",
     ajouter_une_nouvelle_taxe: "Thêm một loại thuế mới",
 };
+//# sourceMappingURL=vi_vn.js.map

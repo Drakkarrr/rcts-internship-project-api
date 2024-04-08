@@ -200,3 +200,4 @@ const supplierSchema = new Schema({
     },
 });
 export default mongoose.model('Supplier', supplierSchema);
+//# sourceMappingURL=Supplier.js.map

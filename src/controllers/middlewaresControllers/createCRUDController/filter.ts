@@ -11,7 +11,7 @@ const filter = async <T extends Document>(Model: Model<T>, req: Request, res: Re
       });
     }
     const result = await Model.find({
-      removed: false,
+      removed: false as any,
     })
       .where(req.query.filter as any)
       .equals(req.query.equal)

@@ -1,16 +1,7 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
 import moment from 'moment';
 const Model = mongoose.model('Offer');
-const summary = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const summary = async (req, res, settings) => {
     try {
         let defaultType = 'month';
         const { type, currency } = req.query;
@@ -33,7 +24,7 @@ const summary = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const startDate = currentDate.clone().startOf(defaultType);
         const endDate = currentDate.clone().endOf(defaultType);
         const statuses = ['draft', 'pending', 'sent', 'expired', 'declined', 'accepted'];
-        const response = yield Model.aggregate([
+        const response = await Model.aggregate([
             {
                 $match: {
                     removed: false,
@@ -89,7 +80,10 @@ const summary = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         let result = [];
         const totalOffers = response[0].totalOffer ? response[0].totalOffer[0] : { total: 0, count: 0 };
         const statusResult = response[0].statusCounts || [];
-        const statusResultMap = statusResult.map((item) => (Object.assign(Object.assign({}, item), { percentage: Math.round((item.count / totalOffers.count) * 100) })));
+        const statusResultMap = statusResult.map((item) => ({
+            ...item,
+            percentage: Math.round((item.count / totalOffers.count) * 100),
+        }));
         statuses.forEach((status) => {
             const found = [...statusResultMap].find((item) => item.status === status);
             if (found) {
@@ -114,5 +108,6 @@ const summary = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             error: error.message,
         });
     }
-});
+};
 export default summary;
+//# sourceMappingURL=summary.js.map

@@ -1,16 +1,7 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import { generate as uniqueId } from 'shortid';
-const create = (userModel, req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const create = async (userModel, req, res) => {
     try {
         const User = mongoose.model(userModel);
         const UserPassword = mongoose.model(userModel + 'Password');
@@ -29,7 +20,7 @@ const create = (userModel, req, res) => __awaiter(void 0, void 0, void 0, functi
                 message: "You can't create a user with the role 'owner'",
             });
         }
-        const existingUser = yield User.findOne({ email });
+        const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({
                 success: false,
@@ -47,7 +38,7 @@ const create = (userModel, req, res) => __awaiter(void 0, void 0, void 0, functi
         const salt = uniqueId();
         const passwordHash = bcrypt.hashSync(salt + password);
         req.body.removed = false;
-        const result = yield new User({
+        const result = await new User({
             email,
             enabled,
             name,
@@ -67,9 +58,9 @@ const create = (userModel, req, res) => __awaiter(void 0, void 0, void 0, functi
             user: result._id,
             emailVerified: true,
         };
-        const resultPassword = yield new UserPassword(userPasswordData).save();
+        const resultPassword = await new UserPassword(userPasswordData).save();
         if (!resultPassword) {
-            yield User.deleteOne({ _id: result._id }).exec();
+            await User.deleteOne({ _id: result._id }).exec();
             return res.status(403).json({
                 success: false,
                 result: null,
@@ -98,5 +89,6 @@ const create = (userModel, req, res) => __awaiter(void 0, void 0, void 0, functi
             error: error.message,
         });
     }
-});
+};
 export default create;
+//# sourceMappingURL=create.js.map

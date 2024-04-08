@@ -39,3 +39,4 @@ AdminPasswordSchema.methods.validPassword = function (salt, userpassword) {
     return bcrypt.compareSync(salt + userpassword, this.password);
 };
 export default mongoose.model('AdminPassword', AdminPasswordSchema);
+//# sourceMappingURL=AdminPassword.js.map

@@ -19,3 +19,4 @@ const settingMethods = {
     updateManySetting,
 };
 export default settingMethods;
+//# sourceMappingURL=index.js.map

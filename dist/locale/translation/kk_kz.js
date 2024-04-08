@@ -451,3 +451,4 @@ module.exports = {
     add_new_proforma_invoice: "Жаңа проформа инвойс қосу",
     ajouter_une_nouvelle_taxe: "Жаңа салықты қосу",
 };
+//# sourceMappingURL=kk_kz.js.map

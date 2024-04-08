@@ -1,18 +1,9 @@
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 import mongoose from 'mongoose';
 import { generate as uniqueId } from 'shortid';
 import Joi from 'joi';
 import { globSync } from 'glob';
 import fs from 'fs';
-const setup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const setup = async (req, res) => {
     try {
         const Admin = mongoose.model('Admin');
         const AdminPassword = mongoose.model('AdminPassword');
@@ -47,14 +38,14 @@ const setup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             name,
             role: 'owner',
         };
-        const result = yield new Admin(accountOwnner).save();
+        const result = await new Admin(accountOwnner).save();
         const AdminPasswordData = {
             password: passwordHash,
             emailVerified: true,
             salt: salt,
             user: result._id,
         };
-        yield new AdminPassword(AdminPasswordData).save();
+        await new AdminPassword(AdminPasswordData).save();
         const settingData = [];
         const settingsFiles = globSync('./src/setup/defaultSettings/**/*.json');
         for (const filePath of settingsFiles) {
@@ -68,15 +59,15 @@ const setup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             };
             const newSettings = file.map((x) => {
                 const settingValue = settingsToUpdate[x.settingKey];
-                return settingValue ? Object.assign(Object.assign({}, x), { settingValue }) : Object.assign({}, x);
+                return settingValue ? { ...x, settingValue } : { ...x };
             });
             settingData.push(...newSettings);
         }
-        yield Setting.insertMany(settingData);
+        await Setting.insertMany(settingData);
         const { currencyList } = require('@/utils/currencyList');
-        yield Currency.insertMany(currencyList);
-        yield Taxes.insertMany([{ taxName: 'Tax 0%', taxValue: '0', isDefault: true }]);
-        yield PaymentMode.insertMany([
+        await Currency.insertMany(currencyList);
+        await Taxes.insertMany([{ taxName: 'Tax 0%', taxValue: '0', isDefault: true }]);
+        await PaymentMode.insertMany([
             {
                 name: 'Default Payment',
                 description: 'Default Payment Mode (Cash and Bank Transfer)',
@@ -97,5 +88,6 @@ const setup = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             error: error.message,
         });
     }
-});
+};
 export default setup;
+//# sourceMappingURL=setup.js.map
