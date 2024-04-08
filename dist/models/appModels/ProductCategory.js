@@ -70,4 +70,3 @@ const productCategorySchema = new Schema({
     },
 });
 export default mongoose.model('ProductCategory', productCategorySchema);
-//# sourceMappingURL=ProductCategory.js.map

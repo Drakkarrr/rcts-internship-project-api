@@ -41,4 +41,3 @@ const updateProfile = async (userModel, req, res) => {
     });
 };
 export default updateProfile;
-//# sourceMappingURL=updateProfile.js.map

@@ -33,4 +33,3 @@ const listAll = async (userModel, req, res) => {
     }
 };
 export default listAll;
-//# sourceMappingURL=listAll.js.map

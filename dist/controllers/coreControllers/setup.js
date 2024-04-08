@@ -90,4 +90,3 @@ const setup = async (req, res) => {
     }
 };
 export default setup;
-//# sourceMappingURL=setup.js.map

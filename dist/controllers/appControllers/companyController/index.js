@@ -17,4 +17,3 @@ function modelController() {
     }
 }
 export default modelController();
-//# sourceMappingURL=index.js.map

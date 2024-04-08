@@ -13,4 +13,3 @@ methods.update = update;
 methods.delete = remove;
 methods.summary = summary;
 export default methods;
-//# sourceMappingURL=index.js.map

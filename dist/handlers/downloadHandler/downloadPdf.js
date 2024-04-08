@@ -63,4 +63,3 @@ const downloadPdf = async (req, res, { directory, id }) => {
     }
 };
 export default downloadPdf;
-//# sourceMappingURL=downloadPdf.js.map

@@ -6,4 +6,3 @@ const useDate = ({ settings }) => {
     };
 };
 export default useDate;
-//# sourceMappingURL=useDate.js.map

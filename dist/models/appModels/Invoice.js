@@ -152,4 +152,3 @@ const invoiceSchema = new Schema({
 });
 invoiceSchema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('Invoice', invoiceSchema);
-//# sourceMappingURL=Invoice.js.map

@@ -37,4 +37,3 @@ const summary = async (Model, req, res) => {
     }
 };
 export default summary;
-//# sourceMappingURL=summary.js.map

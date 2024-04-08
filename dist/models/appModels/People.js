@@ -138,4 +138,3 @@ const peopleSchema = new Schema({
 });
 peopleSchema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('People', peopleSchema);
-//# sourceMappingURL=People.js.map

@@ -61,4 +61,3 @@ const languages = [
     { icon: '🇺🇿 ', label: 'Uzbek', value: 'uz_uz' },
     { icon: '🇻🇳 ', label: 'Vietnamese', value: 'vi_vn' },
 ];
-//# sourceMappingURL=languages.js.map

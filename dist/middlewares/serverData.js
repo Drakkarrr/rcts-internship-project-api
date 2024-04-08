@@ -9,4 +9,3 @@ export const getOne = ({ model, id, }) => {
     const result = Model.findOne({ _id: id, removed: false }).exec();
     return result;
 };
-//# sourceMappingURL=serverData.js.map

@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "Pridėti naują proforma sąskaitą",
     ajouter_une_nouvelle_taxe: "Pridėti naują mokesčių tarifą",
 };
-//# sourceMappingURL=lt_lt.js.map

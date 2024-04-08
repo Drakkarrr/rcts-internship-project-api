@@ -836,4 +836,3 @@ const listTimeZones = [
         timeZones: ['Africa/Harare'],
     },
 ];
-//# sourceMappingURL=countryList.js.map

@@ -32,4 +32,3 @@ routesList.forEach(({ entity, controllerName }) => {
     routerApp(entity, controller);
 });
 export default router;
-//# sourceMappingURL=appApi.js.map

@@ -64,4 +64,3 @@ async function setupApp() {
     }
 }
 setupApp();
-//# sourceMappingURL=setup.js.map

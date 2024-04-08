@@ -7,4 +7,3 @@ router.route('/forgetpassword').post(catchErrors(adminAuth.forgetPassword));
 router.route('/resetpassword').post(catchErrors(adminAuth.resetPassword));
 router.route('/logout').post(adminAuth.isValidAuthToken, catchErrors(adminAuth.logout));
 export default router;
-//# sourceMappingURL=coreAuth.js.map

@@ -34,4 +34,3 @@ const expenseCategorySchema = new Schema({
     },
 });
 export default mongoose.model('ExpenseCategory', expenseCategorySchema);
-//# sourceMappingURL=ExpenseCategory.js.map

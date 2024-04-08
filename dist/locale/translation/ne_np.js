@@ -452,4 +452,3 @@ module.exports = {
     add_new_proforma_invoice: "नयाँ प्रोफोर्मा बिल थप्नुहोस्",
     ajouter_une_nouvelle_taxe: "नयाँ कर थप्नुहोस्",
 };
-//# sourceMappingURL=ne_np.js.map

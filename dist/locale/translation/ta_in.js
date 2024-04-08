@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "புதிய முன்பதிவு விலைப்பட்டியத்தைச் சேர்க்கவும்",
     ajouter_une_nouvelle_taxe: "புதிய வரி சேர்க்க",
 };
-//# sourceMappingURL=ta_in.js.map

@@ -51,4 +51,3 @@ const listBySettingKey = async (req, res) => {
     }
 };
 export default listBySettingKey;
-//# sourceMappingURL=listBySettingKey.js.map

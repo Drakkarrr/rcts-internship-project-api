@@ -41,4 +41,3 @@ const schema = new Schema({
     },
 });
 export default mongoose.model('InventoryAdjustment', schema);
-//# sourceMappingURL=InventoryAdjustment.js.map

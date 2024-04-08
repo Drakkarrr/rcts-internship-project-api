@@ -77,4 +77,3 @@ methods.update = async (req, res) => {
     }
 };
 export default methods;
-//# sourceMappingURL=index.js.map

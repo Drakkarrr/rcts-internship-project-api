@@ -15,7 +15,7 @@
     "importHelpers": true,
     "types": ["node"],
     "moduleResolution": "node",
-    "sourceMap": true,
+    "sourceMap": false,
     "paths": {
       "@/*": ["./*"]
     }

@@ -31,4 +31,3 @@ async function upgrade() {
     }
 }
 upgrade();
-//# sourceMappingURL=upgrade.js.map

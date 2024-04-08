@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "إضافة فاتورة بروفورما جديدة",
     ajouter_une_nouvelle_taxe: "إضافة ضريبة جديدة",
 };
-//# sourceMappingURL=ar_eg.js.map

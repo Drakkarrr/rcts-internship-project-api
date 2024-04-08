@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "Ավելացնել նոր պրոֆորմա հաշիվ",
     ajouter_une_nouvelle_taxe: "Ավելացնել նոր արժեքավճար",
 };
-//# sourceMappingURL=hy_am.js.map

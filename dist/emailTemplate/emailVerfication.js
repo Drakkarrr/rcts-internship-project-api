@@ -78,4 +78,3 @@ export const afterRegistrationSuccess = ({ title = 'Verify Your Email Address', 
     
     `;
 };
-//# sourceMappingURL=emailVerfication.js.map

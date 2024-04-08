@@ -46,4 +46,3 @@ const updateBySettingKey = async (req, res) => {
     }
 };
 export default updateBySettingKey;
-//# sourceMappingURL=updateBySettingKey.js.map

@@ -39,4 +39,3 @@ const filter = async (Model, req, res) => {
     }
 };
 export default filter;
-//# sourceMappingURL=filter.js.map

@@ -48,4 +48,3 @@ const authUser = async (req, res, { user, databasePassword, password, UserPasswo
     }
 };
 export default authUser;
-//# sourceMappingURL=authUser.js.map

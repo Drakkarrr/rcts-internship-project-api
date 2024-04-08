@@ -9,4 +9,3 @@ function checkAndCorrectURL(url) {
     return httpType + url;
 }
 export default checkAndCorrectURL;
-//# sourceMappingURL=checkAndCorrectURL.js.map

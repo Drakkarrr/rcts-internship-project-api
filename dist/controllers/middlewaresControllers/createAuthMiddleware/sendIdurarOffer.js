@@ -11,4 +11,3 @@ const sendIdurarOffer = async ({ email, name }) => {
     return data;
 };
 export default sendIdurarOffer;
-//# sourceMappingURL=sendIdurarOffer.js.map

@@ -51,4 +51,3 @@ const remove = async (userModel, req, res) => {
     }
 };
 export default remove;
-//# sourceMappingURL=disable.js.map

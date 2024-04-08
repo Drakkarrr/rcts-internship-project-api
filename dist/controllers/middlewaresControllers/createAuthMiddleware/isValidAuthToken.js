@@ -60,4 +60,3 @@ const isValidAuthToken = async (req, res, next, { userModel, jwtSecret = 'JWT_SE
     }
 };
 export default isValidAuthToken;
-//# sourceMappingURL=isValidAuthToken.js.map

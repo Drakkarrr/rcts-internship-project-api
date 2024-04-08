@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "Προσθήκη Νέου Προτιμολογίου",
     ajouter_une_nouvelle_taxe: "Προσθήκη Νέου Φόρου",
 };
-//# sourceMappingURL=el_gr.js.map

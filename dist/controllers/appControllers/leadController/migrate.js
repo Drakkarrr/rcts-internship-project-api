@@ -15,4 +15,3 @@ export const migrate = (result) => {
     newData.company = result.company;
     return newData;
 };
-//# sourceMappingURL=migrate.js.map

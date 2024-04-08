@@ -63,4 +63,3 @@ const fileFilter = (type = 'default') => (req, file, cb) => {
     }
 };
 export default fileFilter;
-//# sourceMappingURL=LocalfileFilter.js.map

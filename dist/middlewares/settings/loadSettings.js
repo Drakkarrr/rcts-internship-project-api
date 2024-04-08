@@ -14,4 +14,3 @@ const loadSettings = async () => {
     }
 };
 export default loadSettings;
-//# sourceMappingURL=loadSettings.js.map

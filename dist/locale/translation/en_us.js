@@ -447,4 +447,3 @@ module.exports = {
     offers: 'Offers',
     proforma_invoices: 'Proforma Invoices',
 };
-//# sourceMappingURL=en_us.js.map

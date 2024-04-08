@@ -32,4 +32,3 @@ const read = async (req, res) => {
     }
 };
 export default read;
-//# sourceMappingURL=read.js.map

@@ -14,4 +14,3 @@ const sendMail = async ({ email, name, link, rcts_app_email, subject = 'Verify y
     return data;
 };
 export default sendMail;
-//# sourceMappingURL=sendMail.js.map

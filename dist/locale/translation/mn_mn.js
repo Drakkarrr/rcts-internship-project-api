@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "Шинэ проформа орлог нэмэх",
     ajouter_une_nouvelle_taxe: "Өөрийнхөөтэй татвар нэмэх",
 };
-//# sourceMappingURL=mn_mn.js.map

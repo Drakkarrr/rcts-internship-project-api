@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "Tambah Invois Proforma Baru",
     ajouter_une_nouvelle_taxe: "Tambah Cukai Baru",
 };
-//# sourceMappingURL=ms_my.js.map

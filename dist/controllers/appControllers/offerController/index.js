@@ -13,4 +13,3 @@ methods.create = create;
 methods.update = update;
 methods.summary = summary;
 export default methods;
-//# sourceMappingURL=index.js.map

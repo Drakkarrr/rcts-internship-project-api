@@ -43,4 +43,3 @@ const useLanguage = ({ selectedLang }) => {
     return translate;
 };
 export default useLanguage;
-//# sourceMappingURL=useLanguage.js.map

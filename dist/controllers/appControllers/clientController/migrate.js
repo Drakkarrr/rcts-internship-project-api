@@ -14,4 +14,3 @@ export const migrate = (result) => {
     };
     return newData;
 };
-//# sourceMappingURL=migrate.js.map

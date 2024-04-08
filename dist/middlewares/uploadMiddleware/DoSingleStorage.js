@@ -74,4 +74,3 @@ const DoSingleStorage = ({ entity, fileType = 'default', uploadFieldName = 'file
     };
 };
 export default DoSingleStorage;
-//# sourceMappingURL=DoSingleStorage.js.map

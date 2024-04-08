@@ -45,4 +45,3 @@ const listAll = async (Model, req, res) => {
     }
 };
 export default listAll;
-//# sourceMappingURL=listAll.js.map

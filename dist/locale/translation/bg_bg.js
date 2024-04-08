@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "Добави нова проформна фактура",
     ajouter_une_nouvelle_taxe: "Добави нов данък",
 };
-//# sourceMappingURL=bg_bg.js.map

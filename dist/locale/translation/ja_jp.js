@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "新しいプロフォーマ請求書を追加",
     ajouter_une_nouvelle_taxe: "新しい税金を追加",
 };
-//# sourceMappingURL=ja_jp.js.map

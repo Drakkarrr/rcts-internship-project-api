@@ -33,4 +33,3 @@ const status = async (userModel, req, res) => {
     }
 };
 export default status;
-//# sourceMappingURL=status.js.map

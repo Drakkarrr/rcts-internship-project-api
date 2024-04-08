@@ -23,4 +23,3 @@ const increaseBySettingKey = async ({ settingKey, }) => {
     }
 };
 export default increaseBySettingKey;
-//# sourceMappingURL=increaseBySettingKey.js.map

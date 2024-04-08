@@ -32,4 +32,3 @@ const search = async (Model, req, res) => {
     }
 };
 export default search;
-//# sourceMappingURL=search.js.map

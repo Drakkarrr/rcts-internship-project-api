@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "ახალი პროფორმა ინვოისის დამატება",
     ajouter_une_nouvelle_taxe: "ახალი გადახდის დამატება",
 };
-//# sourceMappingURL=ka_ge.js.map

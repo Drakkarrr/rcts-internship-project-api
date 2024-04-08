@@ -82,4 +82,3 @@ const schema = new Schema({
 });
 schema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('Expense', schema);
-//# sourceMappingURL=Expense.js.map

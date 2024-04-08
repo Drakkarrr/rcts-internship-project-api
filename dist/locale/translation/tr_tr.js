@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "Yeni Proforma Faturası Ekle",
     ajouter_une_nouvelle_taxe: "Yeni Vergi Ekle",
 };
-//# sourceMappingURL=tr_tr.js.map

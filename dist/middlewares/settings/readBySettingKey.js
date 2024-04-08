@@ -19,4 +19,3 @@ const readBySettingKey = async ({ settingKey }) => {
     }
 };
 export default readBySettingKey;
-//# sourceMappingURL=readBySettingKey.js.map

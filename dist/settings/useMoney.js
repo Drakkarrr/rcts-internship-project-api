@@ -37,4 +37,3 @@ const useMoney = ({ settings, }) => {
     };
 };
 export default useMoney;
-//# sourceMappingURL=useMoney.js.map

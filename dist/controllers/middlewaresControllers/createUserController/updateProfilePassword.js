@@ -37,4 +37,3 @@ const updateProfilePassword = async (userModel, req, res) => {
     });
 };
 export default updateProfilePassword;
-//# sourceMappingURL=updateProfilePassword.js.map

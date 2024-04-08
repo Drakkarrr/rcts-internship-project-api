@@ -24,4 +24,3 @@ const profile = async (userModel, req, res) => {
     });
 };
 export default profile;
-//# sourceMappingURL=profile.js.map

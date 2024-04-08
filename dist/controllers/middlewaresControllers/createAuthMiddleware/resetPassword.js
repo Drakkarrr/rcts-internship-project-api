@@ -111,4 +111,3 @@ const resetPassword = async (req, res, { userModel }) => {
         });
 };
 export default resetPassword;
-//# sourceMappingURL=resetPassword.js.map

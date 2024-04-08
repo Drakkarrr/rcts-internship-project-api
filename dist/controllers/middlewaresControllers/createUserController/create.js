@@ -91,4 +91,3 @@ const create = async (userModel, req, res) => {
     }
 };
 export default create;
-//# sourceMappingURL=create.js.map

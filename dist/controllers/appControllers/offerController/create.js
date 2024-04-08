@@ -58,4 +58,3 @@ const create = async (req, res) => {
     }
 };
 export default create;
-//# sourceMappingURL=create.js.map

@@ -26,4 +26,3 @@ const surveySchema = new Schema({
 });
 surveySchema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('Survey', surveySchema);
-//# sourceMappingURL=Survey.js.map

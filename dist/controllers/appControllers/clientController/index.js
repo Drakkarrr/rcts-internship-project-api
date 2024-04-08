@@ -22,4 +22,3 @@ function modelController() {
     return methods;
 }
 export default modelController();
-//# sourceMappingURL=index.js.map

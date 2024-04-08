@@ -113,4 +113,3 @@ const offerSchema = new Schema({
 });
 offerSchema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('Offer', offerSchema);
-//# sourceMappingURL=Offer.js.map

@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: 'הוסף חשבונית פרו-פורמה חדשה',
     ajouter_une_nouvelle_taxe: 'הוסף מס חדש',
 };
-//# sourceMappingURL=he_il.js.map

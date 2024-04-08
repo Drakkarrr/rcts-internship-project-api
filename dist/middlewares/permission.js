@@ -24,4 +24,3 @@ export const hasPermission = (permissionName = 'none') => {
         }
     };
 };
-//# sourceMappingURL=permission.js.map

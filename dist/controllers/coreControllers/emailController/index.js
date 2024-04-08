@@ -10,4 +10,3 @@ const emailMethods = {
     search: crudController.search,
 };
 export default emailMethods;
-//# sourceMappingURL=index.js.map

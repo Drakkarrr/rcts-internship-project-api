@@ -62,4 +62,3 @@ const paymentSchema = new Schema({
 });
 paymentSchema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('Payment', paymentSchema);
-//# sourceMappingURL=Payment.js.map

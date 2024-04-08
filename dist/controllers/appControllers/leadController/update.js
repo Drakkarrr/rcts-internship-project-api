@@ -61,4 +61,3 @@ const update = async (Model, req, res) => {
     }
 };
 export default update;
-//# sourceMappingURL=update.js.map

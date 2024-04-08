@@ -31,4 +31,3 @@ const adminSchema = new Schema({
     },
 });
 export default mongoose.model('Admin', adminSchema);
-//# sourceMappingURL=Admin.js.map

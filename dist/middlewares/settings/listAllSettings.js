@@ -16,4 +16,3 @@ const listAllSettings = async () => {
     }
 };
 export default listAllSettings;
-//# sourceMappingURL=listAllSettings.js.map

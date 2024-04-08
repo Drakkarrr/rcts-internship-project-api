@@ -43,4 +43,3 @@ const clientSchema = new Schema({
 });
 clientSchema.plugin(autopopulate);
 export default mongoose.model('Client', clientSchema);
-//# sourceMappingURL=Client.js.map

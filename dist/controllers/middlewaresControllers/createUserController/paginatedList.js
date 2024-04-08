@@ -62,4 +62,3 @@ const paginatedList = async (userModel, req, res) => {
     }
 };
 export default paginatedList;
-//# sourceMappingURL=paginatedList.js.map

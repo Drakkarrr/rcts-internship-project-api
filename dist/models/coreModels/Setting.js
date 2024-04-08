@@ -35,4 +35,3 @@ const settingSchema = new Schema({
     },
 });
 export default mongoose.model('Setting', settingSchema);
-//# sourceMappingURL=Setting.js.map

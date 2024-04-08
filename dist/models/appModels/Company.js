@@ -196,4 +196,3 @@ const companySchema = new Schema({
 });
 companySchema.plugin(autopopulate);
 export default mongoose.model('Company', companySchema);
-//# sourceMappingURL=Company.js.map

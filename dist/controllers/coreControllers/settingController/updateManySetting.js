@@ -61,4 +61,3 @@ const updateManySetting = async (req, res) => {
     }
 };
 export default updateManySetting;
-//# sourceMappingURL=updateManySetting.js.map

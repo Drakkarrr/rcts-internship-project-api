@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "Lisää uusi ennakkolasku",
     ajouter_une_nouvelle_taxe: "Lisää uusi vero",
 };
-//# sourceMappingURL=fi_fi.js.map

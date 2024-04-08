@@ -65,4 +65,3 @@ const forgetPassword = async (req, res, { userModel }) => {
     });
 };
 export default forgetPassword;
-//# sourceMappingURL=forgetPassword.js.map

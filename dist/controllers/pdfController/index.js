@@ -61,4 +61,3 @@ exports.generatePdf = async (modelName, info, result, callback) => {
     }
 };
 export default exports;
-//# sourceMappingURL=index.js.map

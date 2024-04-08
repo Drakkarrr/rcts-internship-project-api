@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "Tilføj ny proforma-faktura",
     ajouter_une_nouvelle_taxe: "Tilføj ny skat",
 };
-//# sourceMappingURL=da_dk.js.map

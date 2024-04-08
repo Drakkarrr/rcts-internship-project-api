@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "Rnu Tadrimt n Proforma Amaynut",
     ajouter_une_nouvelle_taxe: "Rnu Asebter Aṭas Amezruy",
 };
-//# sourceMappingURL=kb_dz.js.map

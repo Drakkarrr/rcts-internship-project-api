@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "Pievienot jaunu proforma rēķinu",
     ajouter_une_nouvelle_taxe: "Pievienot jaunu nodokli",
 };
-//# sourceMappingURL=lv_lv.js.map

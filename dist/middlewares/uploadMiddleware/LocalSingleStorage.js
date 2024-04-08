@@ -41,4 +41,3 @@ const singleStorageUpload = ({ entity, fileType = 'default', uploadFieldName = '
     return multerStorage;
 };
 export default singleStorageUpload;
-//# sourceMappingURL=LocalSingleStorage.js.map

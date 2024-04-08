@@ -22,4 +22,3 @@ const updateBySettingKey = async ({ settingKey, settingValue, }) => {
     }
 };
 export default updateBySettingKey;
-//# sourceMappingURL=updateBySettingKey.js.map

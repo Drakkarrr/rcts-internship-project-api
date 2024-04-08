@@ -42,4 +42,3 @@ const photo = async (userModel, req, res) => {
     }
 };
 export default photo;
-//# sourceMappingURL=photo.js.map

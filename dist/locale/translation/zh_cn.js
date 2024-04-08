@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "添加新的形式发票",
     ajouter_une_nouvelle_taxe: "添加新的税项",
 };
-//# sourceMappingURL=zh_cn.js.map

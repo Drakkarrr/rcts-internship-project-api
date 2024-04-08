@@ -17,4 +17,3 @@ router.route('/:directory/:file').get((req, res) => {
     }
 });
 export default router;
-//# sourceMappingURL=coreDownloadRouter.js.map

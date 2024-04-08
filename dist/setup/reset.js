@@ -21,4 +21,3 @@ async function deleteData() {
     process.exit();
 }
 deleteData();
-//# sourceMappingURL=reset.js.map

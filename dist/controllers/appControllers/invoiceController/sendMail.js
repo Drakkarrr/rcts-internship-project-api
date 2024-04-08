@@ -81,4 +81,3 @@ const sendViaApi = async ({ email, name, targetLocation }) => {
     }
 };
 export default mail;
-//# sourceMappingURL=sendMail.js.map

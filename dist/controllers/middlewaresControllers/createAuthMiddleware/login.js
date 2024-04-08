@@ -42,4 +42,3 @@ const login = async (req, res, { userModel }) => {
     await authUser(req, res, { user, databasePassword, password, UserPasswordModel });
 };
 export default login;
-//# sourceMappingURL=login.js.map

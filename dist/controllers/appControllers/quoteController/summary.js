@@ -102,4 +102,3 @@ const summary = async (req, res) => {
     });
 };
 export default summary;
-//# sourceMappingURL=summary.js.map

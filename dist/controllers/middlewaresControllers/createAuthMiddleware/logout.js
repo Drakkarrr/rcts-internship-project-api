@@ -21,4 +21,3 @@ const logout = async (req, res, { userModel }) => {
     });
 };
 export default logout;
-//# sourceMappingURL=logout.js.map

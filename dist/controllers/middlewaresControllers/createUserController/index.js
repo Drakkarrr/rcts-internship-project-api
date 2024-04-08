@@ -27,4 +27,3 @@ const createUserController = (userModel) => {
     return userController;
 };
 export default createUserController;
-//# sourceMappingURL=index.js.map

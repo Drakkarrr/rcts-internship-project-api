@@ -29,4 +29,3 @@ const appControllers = () => {
     return controllers;
 };
 export default appControllers();
-//# sourceMappingURL=index.js.map

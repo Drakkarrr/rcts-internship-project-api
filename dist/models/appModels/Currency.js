@@ -62,4 +62,3 @@ const currencySchema = new Schema({
     },
 });
 export default mongoose.model('Currency', currencySchema);
-//# sourceMappingURL=Currency.js.map

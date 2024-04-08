@@ -34,4 +34,3 @@ const remove = async (Model, req, res) => {
     }
 };
 export default remove;
-//# sourceMappingURL=remove.js.map

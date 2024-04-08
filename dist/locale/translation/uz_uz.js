@@ -451,4 +451,3 @@ module.exports = {
     add_new_proforma_invoice: "Yangi proforma faktura qo'shish",
     ajouter_une_nouvelle_taxe: "Yangi soliqlarni qo'shish",
 };
-//# sourceMappingURL=uz_uz.js.map

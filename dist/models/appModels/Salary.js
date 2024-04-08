@@ -105,4 +105,3 @@ const salarySchema = new Schema({
 });
 salarySchema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('Salary', salarySchema);
-//# sourceMappingURL=Salary.js.map

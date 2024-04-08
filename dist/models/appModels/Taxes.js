@@ -26,4 +26,3 @@ const taxesSchema = new Schema({
     },
 });
 export default mongoose.model('Taxes', taxesSchema);
-//# sourceMappingURL=Taxes.js.map

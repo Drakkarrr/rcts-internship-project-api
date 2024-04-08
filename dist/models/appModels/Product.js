@@ -91,4 +91,3 @@ const productSchema = new Schema({
 });
 productSchema.plugin(require('mongoose-autopopulate'));
 export default mongoose.model('Product', productSchema);
-//# sourceMappingURL=Product.js.map

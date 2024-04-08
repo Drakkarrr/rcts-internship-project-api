@@ -15,4 +15,3 @@ methods.update = update;
 methods.convert = convertQuoteToInvoice;
 methods.summary = summary;
 export default methods;
-//# sourceMappingURL=index.js.map

@@ -59,4 +59,3 @@ const paginatedList = async (Model, req, res) => {
     }
 };
 export default paginatedList;
-//# sourceMappingURL=paginatedList.js.map
