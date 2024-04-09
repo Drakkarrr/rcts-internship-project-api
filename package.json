@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node src/server.ts --ignore public/",
-    "dev": "npx tsc src/server.ts",
+    "dev": "nodemon src/server.ts",
     "production": "NODE_ENV=production",
     "setup": "node src/setup/setup.ts",
     "upgrade": "node src/setup/upgrade.ts",
