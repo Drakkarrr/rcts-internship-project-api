@@ -20,7 +20,7 @@
     "allowImportingTsExtensions": true,
     "sourceMap": false,
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["./*"]
     }
   },
   "exclude": ["node_modules"]
