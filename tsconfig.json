@@ -7,7 +7,7 @@
     "rootDir": "./src",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "allowJs": true,
     "resolveJsonModule": true,
     "strictNullChecks": false,
@@ -20,9 +20,8 @@
     "allowImportingTsExtensions": true,
     "sourceMap": false,
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["*"]
     }
   },
-  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }

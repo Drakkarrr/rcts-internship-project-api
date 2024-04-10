@@ -1,10 +1,11 @@
 import express from 'express';
-import { catchErrors } from '@/handlers/errorHandlers';
+// import { catchErrors } from '../..//handlers/errorHandlers';
+import { catchErrors } from '../../handlers/errorHandlers';
 import adminController from '@/controllers/coreControllers/adminController';
 import settingController from '@/controllers/coreControllers/settingController';
 import emailController from '@/controllers/coreControllers/emailController';
 import { singleStorageUpload } from '@/middlewares/uploadMiddleware';
-import { hasPermission } from '@/middlewares/permission';
+import { hasPermission } from '@/middlewares/permission.js';
 
 const router = express.Router();
 
@@ -14,7 +15,7 @@ router.route('/admin/read/:id').get(hasPermission('read'), catchErrors(adminCont
 router.route('/admin/update/:id').patch(
   hasPermission(),
   // singleStorageUpload({ entity: 'setting', fieldName: 'photo', fileType: 'image' }),
-  catchErrors(adminController.update)
+  catchErrors(adminController.update),
 );
 router.route('/admin/delete/:id').delete(hasPermission(), catchErrors(adminController.delete));
 router.route('/admin/search').get(hasPermission(), catchErrors(adminController.search));
@@ -34,7 +35,7 @@ router
   .patch(
     hasPermission('update'),
     singleStorageUpload({ entity: 'admin', fieldName: 'photo', fileType: 'image' }),
-    catchErrors(adminController.updateProfile)
+    catchErrors(adminController.updateProfile),
   );
 
 //! API for Global Setting
@@ -62,9 +63,9 @@ router
   .patch(
     hasPermission(),
     catchErrors(
-      singleStorageUpload({ entity: 'setting', fieldName: 'settingValue', fileType: 'image' })
+      singleStorageUpload({ entity: 'setting', fieldName: 'settingValue', fileType: 'image' }),
     ),
-    catchErrors(settingController.updateBySettingKey)
+    catchErrors(settingController.updateBySettingKey),
   );
 router
   .route('/setting/updateManySetting')

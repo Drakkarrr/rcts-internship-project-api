@@ -1,6 +1,7 @@
+import { catchErrors } from '../../handlers/errorHandlers';
 import express from 'express';
-import { catchErrors } from '@/handlers/errorHandlers';
-import adminAuth from '@/controllers/coreControllers/adminAuth';
+// import adminAuth from '@/controllers/coreControllers/adminAuth';
+import adminAuth from '../../controllers/coreControllers/adminAuth';
 
 const router = express.Router();
 

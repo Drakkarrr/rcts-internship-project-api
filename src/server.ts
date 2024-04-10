@@ -1,4 +1,5 @@
-import 'module-alias/register';
+// import 'module-alias/register';
+import { register } from 'node:module';
 import mongoose, { ConnectOptions } from 'mongoose';
 import { globSync } from 'glob';
 import path from 'path';
