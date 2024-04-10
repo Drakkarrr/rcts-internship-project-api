@@ -8,6 +8,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "src",
+    "allowJs": true,
     "resolveJsonModule": true,
     "strictNullChecks": false,
     "noImplicitAny": true,
